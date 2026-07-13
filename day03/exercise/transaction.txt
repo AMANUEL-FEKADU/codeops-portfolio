@@ -1,0 +1,10 @@
+Abebe,150.50
+Aster,2300.00
+Chala,450.25
+Abebe,320.00
+Makeda,1200.75
+Aster,150.00
+Chala,80.00
+Dawit,600.00
+Makeda,450.00
+Abebe,75.25

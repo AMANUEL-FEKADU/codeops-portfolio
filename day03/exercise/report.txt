@@ -1,0 +1,6 @@
+Customers                Total
+Aster                2450.0
+Makeda               1650.75
+Dawit                600.0
+Abebe                545.75
+Chala                530.25
