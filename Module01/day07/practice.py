@@ -23,9 +23,9 @@
 # }
 
 
-# print(acc_list[99999]) # 1.189 seconds
+# print(acc_list[99999]) # 1.189  in my machine
 
-# print(accounts_dict[acc_list[99999]]) #0.785
+# print(accounts_dict[acc_list[99999]]) #0.785 in my machine
 
 # #--------------------------------------------
 # # question 3
@@ -58,7 +58,7 @@
 # names=Stack()
 # names.push("Abebe")
 # names.push("Aster")
-# names.push("Dawit") # should be top of the stack
+# names.push("Dawit") 
 
 # names.reverse()
 

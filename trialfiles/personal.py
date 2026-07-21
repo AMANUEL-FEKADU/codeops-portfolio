@@ -112,37 +112,38 @@
 # print(st.peek())
 
 
-from collections import deque
+# 
 
-class queue:
-    def __init__(self):
-        self.box=deque()
-
-    def enqueue(self,data):
-        self.box.append(data)
-
-    def dequeue(self):
-        if not self.box:
-            return "empty"
+# def linear(item,target):
+#     for i,v in enumerate(item):
+#         if v==target:
+#             return f'{v} at index[{i}]'
         
-        self.box.popleft()
+#     return 'not here'
+    
+# li=[1,2,3,4,5,6,7,8,9,10,11,12,13]    
+# print(linear(li,8))
 
-    def display(self):
-        ele=[str(item) for item in self.box]
-        print("front->".join(ele)+"->last")
-
-
-d=queue()
-d.enqueue(1)
-d.enqueue(2)
-d.enqueue(3)
-d.display()
-
-
-
-
-
+def binary(item,target):
+    low=0
+    high=len(item)-1
+    count=0
+    while low<=high:
         
+        mid=(low+high)//2
 
-
+        if item[mid]==target:
+            count+=1
+            return f'{target} found in {count} iteration at index{mid}'
         
+        elif target>item[mid]:
+            low=mid+1
+            count+=1
+        elif target<item[mid]:
+            high=mid-1
+            count+=1
+
+    return f'cant find it here'
+
+li=[1,2,3,4,5,6,7,8,9,10,11,12,13]
+print(binary(li,13))

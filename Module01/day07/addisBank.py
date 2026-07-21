@@ -143,7 +143,33 @@ class Accountregistry:
         self.acc_li.append(acc)
 
     def find(self,acc_num):
-        return self.acc_dict.get(acc_num)    
+        return self.acc_dict.get(acc_num)
+    
+    def top_by_balance(self,n):
+        top=sorted(self.acc_dict.values(),key=lambda a:a.balance, reverse=True)
+        return top[:n]
+    
+    def binary(self,item,target):
+        low=0
+        high=len(item)-1
+
+
+        while low<=high:
+            mid=(low+high)//2
+            if item[mid].account_number==target:
+                return f"your account exists under username {item[mid].owner}"
+            
+            elif item[mid].account_number>target:
+                high=mid-1
+            elif item[mid].account_number<target:
+                low=mid+1
+        return f"your account doesn't exist in our system"
+    
+    def find_bynum(self,num):
+        items=sorted(self.acc_dict.values(),key=lambda a:a.account_number)
+        i=self.binary(items,num)
+        return i
+
     
     def listall(self):
         for acc in self.acc_li:
