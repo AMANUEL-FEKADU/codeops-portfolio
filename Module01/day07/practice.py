@@ -126,3 +126,4 @@ ll=Linkedlist()
 ll.push_front("Abeb")
 ll.push_front("kebede")
 ll.print_all()
+ 
