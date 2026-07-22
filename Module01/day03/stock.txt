@@ -1,0 +1,4 @@
+Paracetamol,18
+panadol,8
+vitamin d,4
+Amoxicillin,20
