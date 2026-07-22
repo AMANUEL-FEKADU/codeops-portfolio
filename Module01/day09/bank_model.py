@@ -212,14 +212,14 @@ branch_bole = Branch("Bole Branch")
 branch_bole.add_account(acc1003)                              
 branch_bole.add_account(acc1004)                             
 
-# Wire up tree nodes
+
 region_addis.add_child(branch_bole)                           
 head_office.add_child(region_addis)                           
 
-print("--- RECURSIVE TOTAL BALANCE TEST ---")
-print(f"Bole Branch Total: {branch_bole.total_balance()} ETB")       
-print(f"Addis Region Total: {region_addis.total_balance()} ETB")    
-print(f"Head Office Total: {head_office.total_balance()} ETB\n")     
+print("Recursive total balance")
+print(f"Bole branch total: {branch_bole.total_balance()} ETB")       
+print(f"Addis region total: {region_addis.total_balance()} ETB")    
+print(f"Head office total: {head_office.total_balance()} ETB\n")     
 
 
 
@@ -230,6 +230,6 @@ transfers = {
     1004: [1001]                                             
 }
 
-print("--- BFS REACHABILITY TEST ---")
+print("Bfs")
 reachable = bfs(transfers, 1001)                             
 print(f"Accounts reachable from 1001: {reachable}")

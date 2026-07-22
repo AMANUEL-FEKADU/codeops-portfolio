@@ -6,90 +6,90 @@
 
 #------------------------------------------------------------
 #question 2
-# import random
-# total=100000
-# acc_set=set()
+import random
+total=100000
+acc_set=set()
 
-# while len(acc_set)<total:
-#     acc_num=f"Acc-{random.randint(100000,999999)}"
-#     acc_set.add(acc_num)
+while len(acc_set)<total:
+    acc_num=f"Acc-{random.randint(100000,999999)}"
+    acc_set.add(acc_num)
 
-# acc_list=list(acc_set)
-
-
-# accounts_dict = {
-#     acc: {"status": "active", "balance": random.randint(100, 50000)} 
-#     for acc in acc_list
-# }
+acc_list=list(acc_set)
 
 
-# print(acc_list[99999]) # 1.189  in my machine
+accounts_dict = {
+    acc: {"status": "active", "balance": random.randint(100, 50000)} 
+    for acc in acc_list
+}
 
-# print(accounts_dict[acc_list[99999]]) #0.785 in my machine
+
+print(acc_list[99999]) # 1.189  in my machine
+
+print(accounts_dict[acc_list[99999]]) #0.785 in my machine
 
 # #--------------------------------------------
 # # question 3
-# from collections import deque
-# class Stack:
-#     def __init__(self):
-#         self.box=deque()
+from collections import deque
+class Stack:
+    def __init__(self):
+        self.box=deque()
 
-#     def push(self,data):
-#         self.box.append(data)
-#         return
+    def push(self,data):
+        self.box.append(data)
+        return
     
-#     def pop(self):
-#         if not self.box:
-#             return f"empty Stack"
+    def pop(self):
+        if not self.box:
+            return f"empty Stack"
         
-#         self.box.pop()
-#         return f"{self.box[-1]} deleted from the stack"
+        self.box.pop()
+        return f"{self.box[-1]} deleted from the stack"
     
-#     def peek(self):
-#         if not self.box:
-#             return f"empty stack"
-#         removed=self.pop()
-#         return f"{removed} is at the top"
+    def peek(self):
+        if not self.box:
+            return f"empty stack"
+        removed=self.pop()
+        return f"{removed} is at the top"
     
-#     def reverse(self):
-#         for ele in reversed(self.box):
-#             print(ele)
+    def reverse(self):
+        for ele in reversed(self.box):
+            print(ele)
 
-# names=Stack()
-# names.push("Abebe")
-# names.push("Aster")
-# names.push("Dawit") 
+names=Stack()
+names.push("Abebe")
+names.push("Aster")
+names.push("Dawit") 
 
-# names.reverse()
+names.reverse()
 
 # #-----------------------------------------------------------
 # #question 4
 
-# from collections import deque
+from collections import deque
 
-# class Queue:
-#     def __init__(self):
-#         self.box=deque()
+class Queue:
+    def __init__(self):
+        self.box=deque()
 
-#     def enqueue(self,data):
-#         self.box.append(data)
-#         return
+    def enqueue(self,data):
+        self.box.append(data)
+        return
 
-#     def serve(self):
-#         if not self.box:
-#             print("Queue is empty!")
-#             return
+    def serve(self):
+        if not self.box:
+            print("Queue is empty!")
+            return
         
-#         served=self.box.popleft()
-#         print(f"serving: {served}")
+        served=self.box.popleft()
+        print(f"serving: {served}")
 
-# cust=Queue()
-# cust.enqueue("Abebe")
-# cust.enqueue("Aster")
-# cust.enqueue("Dawit")
-# cust.enqueue("tewodros")
-# cust.enqueue("belete")
-# cust.serve()
+cust=Queue()
+cust.enqueue("Abebe")
+cust.enqueue("Aster")
+cust.enqueue("Dawit")
+cust.enqueue("tewodros")
+cust.enqueue("belete")
+cust.serve()
 
 # --------------------------------------
 # question 5
