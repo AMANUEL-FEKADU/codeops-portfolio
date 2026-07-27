@@ -49,6 +49,9 @@ checkMeera([1, -6, 4, -3])
 # question 5
 
 def isDual(arr):
+    if not arr:
+        print("empty array")
+
    
     if len(arr) % 2 != 0:
         return 0
@@ -58,7 +61,7 @@ def isDual(arr):
             return 0  
     return 1 
 
-print(isDual([1,2,1,6,2]))
+print(isDual([1,2,1,6,2,6]))
 
 # question 6
 
