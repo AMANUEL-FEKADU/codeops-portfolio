@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Ethio Telecom Service</h1>
+    <form action="" method="post">
+        
+        <!-- since this is a form that contains email and phone number, it is neccessary to hide
+        this information. there for post is the method to use for this form -->
+        
+        <label for="name">name
+            <input type="text" id="name" required>
+        </label> <br>
+        <label for="email">email
+            <input type="email" id="email" required>
+        </label> <br>
+        <label for="tel">tel(+251)
+            <input type="tel" id="tel" pattern="\+251[0-9]{9}" placeholder="9454754552" required>
+        </label> <br>
+        <label for="branch">Branch
+            <select name="branch" id="branch">
+                <option value="bole">Bole</option>
+                <option value="kazanchis">Kazanchis</option>
+                <option value="piassa">Piassa</option>
+            </select>
+        </label>
+    </form>
+</body>
+</html>
