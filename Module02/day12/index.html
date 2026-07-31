@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Reserve a table and view the menu at Habesha Eatery in Addis Ababa.">
+    <title>Habesha Eatery-Home Page</title>
+</head>
+<body>
+    <header>
+        <h1>Habesha Eatery</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="./contact.html">contact</a>
+        </nav>
+    </header>
+   
+       <h2> Reservation Form </h2> 
+
+    <form method="post">
+        <fieldset>
+            <legend>Reservation</legend>
+       
+        <label for="name">Name</label>
+        <input type="text" id="name"> <br><br>
+        <label for="tel">Tel(09)</label>
+        <input type="tel" id="tel" pattern="09\d{8}"> <br><br>
+        <label for="guests">Guests</label>
+        <input type="number" id="guests" min="1" max="20"> <br><br>
+        <label for="date">Date</label>
+        <input type="date" id="date"> <br><br>
+        <label for="req">special Request </label>
+        <textarea id="req" ></textarea> <br><br>
+        <button type="submit">reserve</button>
+      </fieldset>
+    </form>
+    
+         <figure>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnweYUChYqgjKQnv3XIpUk_P-EKh2mWvwK2mDqRjA2tw&s=10
+    " alt=" a delicious awaze tibs served with injera" loading="lazy">
+        <figcaption>freshly prepared dishes at Habesha Eatery</figcaption>
+    </figure>
+   
+
+     
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31524.947536825064!2d38.68005094813567!3d9.00721196956351!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b870022bf2d69%3A0xce13732998334078!2sAmrogn%20chicken%20%7C%20Bethel%20sultan!5e0!3m2!1sen!2set!4v1785211195878!5m2!1sen!2set" title="an exact location of amrogn kitchen" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+  
+
+  
+    <table>
+        <caption>MENU</caption>
+        <thead>
+            <tr>
+                <th scope="col">Menu</th>
+                <th scope="col">Price(ETB)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">Ferfer</th>
+                <td>200</td>
+            </tr>
+            <tr>
+                <th scope="row">Tibis</th>
+                <td>2200</td>
+            </tr>
+            <tr>
+                <th scope="row">shero</th>
+                <td>500</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+   
+</body>
+</html>
