@@ -1,0 +1,13 @@
+:root{
+    --bkg: #940327;
+    --txtclr: #ffffff;
+    --space:20px;
+    --font:Arial;
+}
+
+.btn{
+    background-color: var(--bkg);
+    color: var(--txtclr);
+    margin: var(--space);
+    font: var(--font);
+}
