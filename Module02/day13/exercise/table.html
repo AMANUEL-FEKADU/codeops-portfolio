@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       th, td{
+            padding:9px ;
+            text-align: center;
+           
+        }
+        
+        
+        table{
+            border-collapse: collapse;
+        }
+        tbody tr:nth-child(even){
+            background-color: rgb(6, 54, 54);
+            color: aliceblue;
+        }
+        tbody tr:nth-child(odd){
+            background-color: rgb(11, 14, 14);
+            color: aliceblue;
+        }
+        thead{
+            background-color: rgb(73, 1, 1);
+            color: rgb(209, 224, 121);
+           
+        }
+       
+    </style>
+</head>
+<body>
+    <table>
+        <caption>Schedule</caption>
+
+        <thead>
+            <tr>
+                <th>start</th>
+                <th>destination</th>
+                <th>time(LT)</th>
+            </tr>
+          </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Addis Ababa</th>
+                    <td>Gonder</td>
+                    <td>8:30</td>
+                </tr>
+                <tr>
+                    <th scope="row">Addis Ababa</th>
+                    <td>Mekele</td>
+                    <td>9:30</td>
+                </tr>
+                <tr>
+                    <th scope="row">Washinton</th>
+                    <td>Addis Ababa</td>
+                    <td>4:00</td>
+                </tr>
+                 <tr>
+                    <th scope="row">Bahirdar</th>
+                    <td>Addis Ababa</td>
+                    <td>5:00</td>
+                </tr>
+                 <tr>
+                    <th scope="row">moscow</th>
+                    <td>Addis Ababa</td>
+                    <td>12:45</td>
+                </tr>
+            </tbody>
+       
+    </table>
+</body>
+</html>
