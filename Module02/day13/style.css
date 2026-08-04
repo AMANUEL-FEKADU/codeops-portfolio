@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Sekuya&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Emblema+One&display=swap');
+:root{
+    --bkgclr:rgb(145, 45, 45);
+    --pad:15px;
+    --borderrad:15px;
+    --mar:auto;
+    --fntclr:white;
+    --fntclr2:rgb(197, 155, 19);
+    --thrdrclr:rgb(189, 185, 185);
+    --btnclr:hsl(157, 98%, 50%);
+    --btnhov:hsl(157, 98%, 80%);
+    --btnpad:5px;
+    --line-height: 23px;
+    --border:2px solid rgb(187, 176, 176);
+}
+*{
+    box-sizing: border-box;
+}
+
+section h1{
+    font-family:'Sekuya' ;
+    color: var(--fntclr);
+    text-align: center;
+}
+section h4{
+    font-weight: 100;
+    color: var(--thrdrclr);
+}
+section{
+    background-color: var(--bkgclr);
+    width: 500px;
+    margin: var(--mar);
+    padding: var(--pad);
+    border-radius: var(--borderrad);
+    border: var(--border);
+}
+section p{
+    color: var(--fntclr2);
+    font-family:'Emblema one';
+    line-height: var(--line-height);
+}
+button{
+    background-color: var(--btnclr);
+    padding: var(--btnpad);
+   margin-left: 155px;
+    
+
+}
+button:hover{
+    background-color: var(--btnhov);
+}
+
+button::after{
+    content: '\1F4F1' ;
+   
+
+}
