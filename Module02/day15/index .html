@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Habesha Eatery</title>
+<style>
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333333;
+    background-color: #fffbf2;
+  }
+
+  h1, h2, h3 {
+    font-family: Georgia, 'Times New Roman', serif;
+    color: #4a2c14;
+  }
+
+  a {
+    color: #cc5500;
+  }
+
+
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4a2c14;
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+  }
+
+  .navbar .logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: Georgia, serif;
+  }
+
+  .navbar ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .navbar ul li {
+    margin-left: 20px;
+  }
+
+  .navbar ul li a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .navbar ul li a:hover {
+    text-decoration: underline;
+    color: orange;
+  }
+
+
+
+  .hero {
+    background-color: #e8a33d;
+    text-align: center;
+    padding: 60px 20px;
+  }
+
+  .hero h1 {
+    font-size: clamp(28px, 6vw, 48px);
+    margin-bottom: 10px;
+  }
+
+  .hero p {
+    font-size: 18px;
+    max-width: 600px;
+    margin: 0 auto 25px auto;
+  }
+
+  .btn {
+    display: inline-block;
+    background-color: #cc5500;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    border: 3px solid #4a2c14;
+  }
+
+  .btn:hover {
+    background-color: #a34400;
+    cursor: pointer;
+  }
+
+
+  .about {
+    padding: 50px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .about img {
+    width: 100%;
+    max-width: 400px;
+    border: 5px solid #4a2c14;
+    margin-top: 20px;
+  }
+
+
+
+  .menu-section {
+    background-color: #fbe9d0;
+    padding: 50px 20px;
+  }
+
+  .menu-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .menu-item {
+    background: white;
+    border: 2px solid #4a2c14;
+    padding: 15px;
+    text-align: center;
+  }
+
+  .menu-item h3 {
+    margin-top: 0;
+    margin-bottom: 5px;
+  }
+
+  .menu-item .price {
+    color: #cc5500;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+
+  
+
+  .reservation {
+    padding: 50px 20px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .reservation h2 {
+    text-align: center;
+  }
+
+  .reservation form {
+    background-color: #fbe9d0;
+    padding: 20px;
+    border: 2px dashed #4a2c14;
+  }
+
+  .reservation label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+
+  .reservation input,
+  .reservation select,
+  .reservation textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #999;
+    font-family: inherit;
+    font-size: 16px;
+  }
+
+  .reservation button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    background-color: #cc5500;
+    color: white;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .reservation button:hover {
+    background-color: #a34400;
+    cursor: pointer;
+  }
+
+  
+
+  footer {
+    background-color: #4a2c14;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+  }
+
+  footer p {
+    margin: 5px 0;
+  }
+
+  footer a {
+    color: orange;
+  }
+
+
+  @media (max-width: 600px) {
+    .navbar {
+      flex-direction: column;
+    }
+
+    .navbar ul {
+      margin-top: 10px;
+    }
+
+    .navbar ul li {
+      margin: 0 10px;
+    }
+  }
+
+</style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">Habesha Eatery</div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#reservation">Reservations</a></li>
+      <li><a href="#footer">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <h1>Welcome to Habesha Eatery!!</h1>
+    <p>Real Ethiopian food made in Bole, Addis Ababa. Come try our delcious foods you will not be disapointed :)</p>
+    <a href="#reservation" class="btn">Book a Table</a>
+  </section>
+
+  
+  <section class="about" id="about">
+    <h2>About Us</h2>
+    <p>Habesha Eatery is a family owned restaurant that has been making traditional Ethiopian food for many years. We use fresh ingredients and old family recipes. Everything is cooked with love and served the traditional way, on injera, meant for sharing with everyone at the table.</p>
+    
+  </section>
+
+
+  <section class="menu-section" id="menu">
+    <h2>Our Menu</h2>
+    <div class="menu-grid">
+
+      <div class="menu-item">
+        <h3>Doro Wat</h3>
+        <p>Chicken stew cooked in berbere spice with a boiled egg on top.</p>
+        <p class="price">450 birr</p>
+      </div>
+
+      <div class="menu-item">
+        <h3>Tibs</h3>
+        <p>Fried beef pieces with onion, pepper and rosemary.</p>
+        <p class="price">420 birr</p>
+      </div>
+
+      <div class="menu-item">
+        <h3>Beyaynetu</h3>
+        <p>Mix of lentils, veggies and salad, great for fasting days.</p>
+        <p class="price">320 birr</p>
+      </div>
+
+      <div class="menu-item">
+        <h3>Kitfo</h3>
+        <p>Minced beef with spicy butter, served raw or cooked, your choice.</p>
+        <p class="price">460 birr</p>
+      </div>
+
+      <div class="menu-item">
+        <h3>Family Platter</h3>
+        <p>A little bit of everything, good for sharing with 4 people.</p>
+        <p class="price">1450 birr</p>
+      </div>
+
+      <div class="menu-item">
+        <h3>Coffee Ceremony</h3>
+        <p>Fresh coffee roasted and brewed right at your table.</p>
+        <p class="price">180 birr</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="reservation" id="reservation">
+    <h2>Make a Reservation</h2>
+    <form>
+
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required minlength="2" placeholder="Your name">
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required placeholder="you@example.com">
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" required pattern="[0-9+ ]{7,15}" placeholder="+251 9xx xxx xxx">
+
+      <label for="guests">Number of Guests</label>
+      <select id="guests" name="guests" required>
+        <option value="">-- choose --</option>
+        <option value="1-2">1-2</option>
+        <option value="3-4">3-4</option>
+        <option value="5-8">5-8</option>
+        <option value="9+">9 or more</option>
+      </select>
+
+      <label for="date">Date</label>
+      <input type="date" id="date" name="date" required>
+
+      <label for="time">Time</label>
+      <input type="time" id="time" name="time" required min="11:00" max="22:00">
+
+      <label for="notes">Notes (optional)</label>
+      <textarea id="notes" name="notes" rows="3" placeholder="allergies, special occasion, etc"></textarea>
+
+      <button type="submit">Reserve Now</button>
+
+    </form>
+  </section>
+
+
+  <footer id="footer">
+    <h3>Visit Us</h3>
+    <p>Bole Road, near Friendship Center, Addis Ababa</p>
+    <p>Phone: +251 91 234 5678</p>
+    <p>Email: <a href="">habeshaeatery@gmail.com</a></p>
+    <p>Hours: Mon-Sun 11:00am - 10:00pm</p>
+    <p>&copy; 2026 Habesha Eatery</p>
+  </footer>
+
+</body>
+</html>
