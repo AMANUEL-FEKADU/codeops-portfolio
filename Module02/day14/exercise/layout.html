@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: grid;
+            grid-template-columns:1fr;
+            
+            grid-template-areas: 
+                "header"
+                "sidebar" 
+                "main"
+                "footer";
+        }
+        div{
+            border:1px solid black;
+        }
+        @media (min-width: 700px) {
+    body {
+        grid-template-columns: 250px 1fr;
+        grid-template-areas: 
+            "header  header"
+            "sidebar main"
+            "footer  footer";
+        
+    }
+}
+        
+        .hed{
+            grid-area: header;
+            background-color: green;
+        
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #sid{
+            grid-area: sidebar;
+            background-color: aqua;
+            text-align: center;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+        #main{
+            grid-area: main;
+            background-color: blueviolet;
+           
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #fot{
+            grid-area: footer;
+            background-color: cadetblue;
+            
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="hed">This is the header</div>
+    <div id="sid">this is the side</div>
+    <div id="main">this is the main</div>
+    <div id="fot">this is the fotter</div>
+    
+</body>
+</html>
