@@ -1,0 +1,70 @@
+body {
+    font-family: sans-serif;
+    padding: 20px;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#list {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+/* TODO: Style the bought state with a class, not inline JS styles */
+.done {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.delbtn {
+    margin-left: 15px;
+    color: red;
+}
+
+form{
+    border: 1px solid darksalmon;
+    display: flex;
+    justify-content: center;
+    gap: 0.1em;
+    height: 100px;
+    align-items: center;
+    width: 50%;
+}
+
+input{
+    height: 20px;
+}
+#add{
+    height: 30px;
+    background-color: rgb(8, 212, 100);
+}
+
+div{
+    margin-top:5% ;
+    background-color: aliceblue;
+    border: 1px dashed indianred ;
+    width: 50%;
+    padding: 20px;
+}
+
+div p{
+    background-color: tomato;
+    text-align: center;
+    
+}
+li{
+    
+    background-color: thistle;
+    text-align: center;
+}
+
+
+
