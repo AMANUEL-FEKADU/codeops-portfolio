@@ -1,0 +1,70 @@
+.bought {
+    text-decoration: line-through;
+    opacity: 0.6;
+    background-color: #000000;
+}
+body{
+   background: linear-gradient(135deg, #0f172a, #1e1b4b, #311042);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+h1{
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+}
+label{
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(250, 246, 246);
+    font-weight: 900;
+}
+legend{
+    color: rgb(255, 255, 255);
+    font-weight: 900;
+    font-family: 'Courier New', Courier, monospace;
+}
+button{
+    background-color: rgb(16, 12, 17);
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+}
+form{
+    border: 1px solid gray;
+    background: rgba(255,255,255,0.2);
+
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 2px 5px 15px;
+}
+ul{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border: 1px solid rgb(216, 212, 212);
+    border-radius: 15px;
+    padding: 10px;
+    width: 50%;
+}
+li{
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 900;
+
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    list-style: none;
+    padding: 5px;
+    
+    
+
+}
+.del{
+    background-color: tomato;
+    margin-left: 10px;
+}
+h3{
+    color: rgb(3, 255, 137);
+    font-family: 'Courier New', Courier, monospace;
+}
