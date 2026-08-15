@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background:url('./SL-070722-51460-10.jpg');
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+       #container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 34px;
+    border-radius: 20px;
+    width: 460px;
+    background: rgba(20, 30, 48, 0.55);
+    border: 1px solid rgba(224, 177, 104, 0.35);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+        input{
+    width: 60%;
+    height: 36px;
+    border-radius: 20px;
+    border-style: none;
+    padding: 0 14px;
+    background: rgba(243, 240, 232, 0.9);
+    color: #1a1a2e;
+    font-family: 'Inter', sans-serif;
+    outline: none;
+}
+        p{
+            color: #f3f0e8;
+            font-weight: 400;
+            font-family: 'Inter', sans-serif;
+            align-self: flex-start;
+            margin: 6px 0;
+        }
+        h1{
+           font-family: 'Fraunces', Georgia, serif;
+           font-weight: 600;
+           color: #e0b168;
+            align-self: flex-start;
+            margin: 0 0 14px;
+        }
+        button{
+    height: 36px;
+    padding: 0 16px;
+    margin-left: 8px;
+    border-radius: 20px;
+    border: none;
+    background: #e0b168;
+    color: #1a1a2e;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+}
+    </style>
+</head>
+<body>
+    <div id="container">
+        <form>
+    <input type="text" placeholder="search a country...">
+    <button>click</button>
+    </form>
+    <div id="infobox">
+
+    </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
