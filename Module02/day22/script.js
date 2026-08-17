@@ -76,7 +76,7 @@ conv.addEventListener('click',(e)=>{
         
        search_hist.push(newres)
        localStorage.setItem('search',JSON.stringify(search_hist))
-
+  
     } 
 
     render()
