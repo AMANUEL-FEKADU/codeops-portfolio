@@ -4,13 +4,13 @@ const conv=document.getElementById('conv')
 const watch=document.getElementById('watch')
 const add=document.getElementById('add')
 const page=document.getElementById('page')
-
+let search_hist
 async function converter() {
     
     try{
         const res= await fetch('https://open.er-api.com/v6/latest/ETB')
 
-        if(!res) throw new Error("can't fetch this api")
+        if(!res.ok) throw new Error("can't fetch this api")
 
         const data=await res.json()
 
@@ -39,7 +39,7 @@ async function converter() {
 
     }
     catch(error){
-        console.log(error.message)
+        page.textContent=error.message
     }
     
 }   
@@ -58,11 +58,12 @@ conv.addEventListener('click',(e)=>{
     resu.textContent=result
     const curName=currency.options[currency.selectedIndex].textContent
     
-    let search_hist=JSON.parse(localStorage.getItem('search')) || []
-
+    search_hist=JSON.parse(localStorage.getItem('search')) || []
+    
      const newres={'cur':curName,
                 'amt':amt,
-                'result':result
+                'result':result,
+                'id':Date.now()
        }
 
     const exist=search_hist.map((item)=>{
@@ -76,6 +77,7 @@ conv.addEventListener('click',(e)=>{
         
        search_hist.push(newres)
        localStorage.setItem('search',JSON.stringify(search_hist))
+      
   
     } 
 
@@ -99,12 +101,27 @@ conv.addEventListener('click',(e)=>{
         for(let items of item){
             
             const p=document.createElement('p')
-            p.textContent=`${items.cur} --- ${items.amt} --- ${items.result}`
+            const button=document.createElement('button')
+            button.textContent='delete'
+            
+            p.innerHTML=`<span>${items.cur} --- ${items.amt} --- ${items.result}</span> <button class="del" dataid="${items.id}">delete</button> `
             page.appendChild(p)
         }
 
         
     }
+
+page.addEventListener('click',(e)=>{
+    if(e.target.classList.contains('del')){
+        const target=Number(e.target.getAttribute('dataid'))
+        search_hist=JSON.parse(localStorage.getItem('search'))
+
+        search_hist=search_hist.filter(item=>item.id!== target)
+        localStorage.setItem('search',JSON.stringify(search_hist))
+        render()
+    }
+        
+})
 converter()
 render()
 
