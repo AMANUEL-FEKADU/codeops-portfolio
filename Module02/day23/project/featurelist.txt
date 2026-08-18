@@ -1,0 +1,17 @@
+Features List
+
+must haves
+1 Transaction entry form
+2 Live financial summary
+3 Transaction history
+4 Form validation
+5 async/await apiintegration
+6 local storge persistent
+7 event deligation
+
+
+Nice to haves
+1 BUdget warning when expense is greater than income
+2 light/dark mode toggle
+
+
