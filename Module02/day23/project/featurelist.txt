@@ -12,6 +12,6 @@ must haves
 
 Nice to haves
 1 BUdget warning when expense is greater than income
-2 light/dark mode toggle
+
 
 
