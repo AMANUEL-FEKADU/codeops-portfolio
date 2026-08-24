@@ -5,6 +5,7 @@ const expence=document.getElementById('expence')
 const catagory=document.getElementById('catagory')
 const historyt=document.querySelector('.transaction')
 const total=document.getElementById('total')
+
 let transaction_hist=JSON.parse(localStorage.getItem('transactions')) || [];
 
 function getStoredTotal() {
@@ -14,6 +15,7 @@ function getStoredTotal() {
 }
 
 total.textContent=`${getStoredTotal()} ETB`
+
 const catagoryIcons={
             'eating out':"fa-solid fa-utensils",
             'transport':"fa-solid fa-car-side",
@@ -141,8 +143,10 @@ expence.addEventListener('click',(e)=>{
         const amt=document.getElementById('amt')
         const castamt=Number(amt.value)
 
-        if(!amt||amt<=0) throw new Error('invalid input')
-
+        if(!castamt||castamt<=0){
+            throw new Error('invalid input')
+            return
+        }
         let result=castamt
 
         if(cur.value!=='ETB'){

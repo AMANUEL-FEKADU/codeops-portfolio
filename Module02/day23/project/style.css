@@ -316,7 +316,7 @@
     gap: 14px;
 }
 
-/* ROW LAYOUT */
+
 .spending-item {
     display: flex;
     align-items: center;
@@ -337,8 +337,6 @@
 .cat-amount {
     white-space: nowrap;
 }
-
-/* DASHED CONNECTOR LINE */
 .leader-line {
     flex: 1;
     border-bottom: 2px dashed #d9d5ca;
