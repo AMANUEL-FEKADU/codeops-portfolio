@@ -1,11 +1,13 @@
 import PropTypes from 'prop-types'
-function Dish({dishName,price,currency="ETB",spicy='false'}){
+
+function Dish({dishName,price,currency="ETB",spicy=false}){
 
     return(
      
         <div className="dish">
             <h2>{dishName}</h2>
             <h2>{price} {currency}</h2>
+            <h4>{Boolean(spicy)&& <span>spicy</span>}</h4>
         </div>
   
     )
