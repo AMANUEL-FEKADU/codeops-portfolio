@@ -1,6 +1,7 @@
 import Dish from "./Dish"
 import Header from './Header'
 import "./App.css"
+import Card from "./Card"
 
 function App() {
 const menuDishes = [
@@ -30,8 +31,11 @@ const menuDishes = [
     <>
     <Header/>
       <main className="menu">
-        {menuDishes.map(dish=>(
-          <Dish key={dish.id} dishName={dish.name} price={dish.price} spicy={dish.spicy}/>
+        {menuDishes.map((dish)=>(
+          <Card key={dish.id}>
+            <Dish dishName={dish.name} price={dish.price} spicy={dish.spicy}/>
+
+          </Card>
         ))}
       </main>
     </>
