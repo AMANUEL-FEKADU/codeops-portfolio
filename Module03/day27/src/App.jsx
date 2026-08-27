@@ -27,11 +27,27 @@ const menuDishes = [
   { "id": 20, "name": "Kik Alicha", "category": "Vegetarian", "price": 100, "spicy": false }
 ]
 
+const target=["Vegetarian","Breakfast","Side","Main"]
+const filtered= menuDishes.filter(dish=>(
+  dish.category===target[1]
+))
+if(filtered.length===0){
+  return (
+    <>
+    <Header/>
+    <main className="menu">
+      <p>No dishes in this catagory</p>
+    </main>
+    
+    </>
+    
+
+)}
   return (
     <>
     <Header/>
       <main className="menu">
-        {menuDishes.map((dish)=>(
+        {filtered.map((dish)=>(
           <Card key={dish.id}>
             <Dish dishName={dish.name} price={dish.price} spicy={dish.spicy}/>
 
