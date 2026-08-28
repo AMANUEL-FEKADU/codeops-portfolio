@@ -1,7 +1,7 @@
 import React from 'react'
 import Card from './Card'
 import Dish from './Dish'
-function DishList({dishes}) {
+function DishList({dishes,addOrder}) {
   if(dishes.length===0){
   return (
     <>
@@ -18,7 +18,7 @@ return(
        
         {dishes.map((dish)=>(
           <Card key={dish.id}>
-            <Dish dishName={dish.name} price={dish.price} spicy={dish.spicy}/>
+            <Dish dishName={dish.name} price={dish.price} spicy={dish.spicy} addOrder={addOrder}/>
 
           </Card>
         ))} </main>
