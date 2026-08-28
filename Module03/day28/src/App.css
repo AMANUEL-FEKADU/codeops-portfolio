@@ -64,3 +64,28 @@ h4{
   justify-content:flex-end;
   margin: 25px;
 }
+
+form{
+
+
+}
+.formain{
+  background-color: aliceblue;
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+  border-radius: 15px;
+  padding: 15px;
+  
+}
+.btn{
+  margin:20px;
+  background-color: rgba(35, 214, 35, 0.486);
+  color: white;
+  
+}
+
+.bt{
+  background-color: rgba(35, 214, 35, 0.842);
+  color: white;
+}

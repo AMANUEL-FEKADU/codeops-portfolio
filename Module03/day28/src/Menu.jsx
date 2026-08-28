@@ -1,9 +1,8 @@
-import Dish from "./Dish"
 import "./App.css"
-import Card from "./Card"
 import { useState } from "react"
 import Catagory from "./Catagory"
 import DishList from "./DishList"
+import OrderForm from "./OrderForm"
 function Menu({menuDishes}) {
 
 
@@ -26,7 +25,7 @@ function handleadd(dishprice){
         <h4>Total Order: {total} ETB</h4>
       </div>
      <DishList dishes={filtered} addOrder={handleadd}/>
-      
+      <OrderForm/>
     </>
   )
 }
