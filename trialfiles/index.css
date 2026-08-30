@@ -1,0 +1,65 @@
+/* :root{
+    --main:black;
+    --second:white;
+    --lineheight:1.5;
+    --font:'Courier New', Courier, monospace;
+}
+button{
+    background-color: var(--main);
+    color: var(--second);
+    line-height: var(--lineheight);
+    font-family: var(--font);
+} */
+
+
+:root{
+    --bkg:rgba(77, 189, 83, 0.795);
+    --snd:black;
+    --width: 300px;
+    --pad:24px;
+    --brd:2px solid black;
+
+}
+
+/* div{
+    background-color: var(--bkg);
+    border: var(--brd);
+    width: var(--width);
+    padding: var(--pad);
+    color: var(--snd);
+}
+
+this makes my width 352px
+and now with border box */
+
+/* div{
+    background-color: var(--bkg);
+    border: var(--brd);
+    width: var(--width);
+    padding: var(--pad);
+    color: var(--snd);
+    box-sizing: border-box;
+} */
+
+/* tr:nth-child(even){
+    background-color: rgb(145, 144, 144);
+}
+
+th,td{
+    padding: 10px;
+}
+th{
+    background-color: yellow;
+}
+table{
+    border-collapse: collapse;
+} */
+
+
+.container{
+    border: 1px solid black;
+    display: flex;
+}
+.container div{
+    border: 1px solid black;
+}

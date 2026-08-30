@@ -1,0 +1,53 @@
+.contain{
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 
+    "head head"
+    "menut menut"
+    "foot foot";
+    background-color: brown;
+    
+}
+
+header{
+    grid-area: head;
+    position:sticky;
+    top: 0;
+}
+
+main{
+    grid-area: menut;
+}
+footer{
+    grid-area: foot;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5em;
+}
+section{
+    grid-area: menut;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    gap: 10px;
+    padding: 5px;
+}
+
+.meals{
+    position: relative;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.meals .banner{
+    border: 1px solid green;
+    margin-top: 5px;
+    padding: 3px;
+    background-color: rgba(102, 100, 98, 0.397);
+    border-radius: 8px;
+    color: red;
+    margin-left: 95px;
+}
