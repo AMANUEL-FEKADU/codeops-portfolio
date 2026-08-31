@@ -1,0 +1,85 @@
+body{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+nav{
+    display: flex;
+    justify-content: space-between; 
+    position: sticky;
+    top: 0;
+    background-color: white;
+    border-bottom: 1px solid black;
+    padding: 10px;
+    align-items: center;
+   
+}
+.links{
+    gap: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.hero{
+    background-color: rgb(57, 128, 128);
+    padding: 15px;
+    margin: 15px;
+    color: white;
+    border-radius: 15px;
+}
+.hero p{
+    color: rgb(45, 46, 46);
+
+}
+.hero button{
+    background-color:slateblue;
+    border-style: none;
+    border-radius: 15px;
+    color: white;
+    padding: 10px;
+}
+.menu{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    gap: 25px;
+    margin: auto;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 15px;
+    align-items: center;
+    transition: transform 1s ease-in-out 10ms;
+
+}
+
+
+.card:hover{
+    transform: rotate(3deg);
+    transform: scale(1.1);
+    
+}
+.card img{
+    width: 100%;
+    
+}
+.btn{
+    background-color: rgb(3, 247, 145);
+    width: 50%;
+}
+
+Form{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    border-style:dashed ;
+    padding: 2em;
+}
+
+fieldset{
+    height: 80%;
+    padding: 2%;
+    border-style:groove;
+}

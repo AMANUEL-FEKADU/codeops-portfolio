@@ -1,0 +1,105 @@
+body{
+    background-color: rgba(42, 59, 35, 0.808);
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas: 
+     'header header'
+     'side main'
+     'footer footer';
+     gap: 10px;
+     font-family:'Courier New', Courier, monospace;
+     color: white;
+}
+header{
+    grid-area: header;
+}
+
+aside{
+    grid-area: side;
+    background-color:rgb(116, 129, 129) ;
+}
+footer{
+    grid-area: footer;
+    
+}
+main{
+    grid-area: main;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    border-bottom: 1px solid black;
+    padding: 0.5em;
+    margin: 0.5em;
+    align-items: center;
+    
+}
+nav a{
+    text-decoration: none;
+    color: white;
+}
+
+
+.cards{
+    
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.cards div{
+    flex: 1 1 200px;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 10px;
+    box-sizing: border-box;
+
+}
+
+.gallery{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    margin: 1em;
+    gap: 10px;
+}
+
+.gallery img{
+    width: 100%;
+}
+.span{
+    background-color: rgba(204, 4, 4, 0.144);
+    border: 1px solid rgba(255, 255, 0, 0.425);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    position: absolute;
+    top: 13px;
+    right: 15px;
+    display: flex;
+    align-items: center;
+    color: black;
+
+}
+
+.product img{
+    width: 100%;
+   
+}
+
+.product{
+    border: 1px solid black;
+    width: 300px;
+    padding: 10px;
+    position: relative;
+    margin: 15px;
+}
+@media (max-width:700px) {
+    body{
+        grid-template-columns: 1fr;
+    }
+    
+}
+
