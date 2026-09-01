@@ -52,13 +52,12 @@ a{
     border-radius: 20px;
     padding: 15px;
     align-items: center;
-    transition: transform 1s ease-in-out 10ms;
+    transition: transform 1s ease-in-out 3ms;
 
 }
 
 
 .card:hover{
-    transform: rotate(3deg);
     transform: scale(1.1);
     
 }

@@ -23,7 +23,10 @@ li:hover {
   background-color: #f1f3f5; 
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
-
+body{
+  background-image: url('6.jpg');
+  height: 100vh;
+}
 li button {
   background-color: #ff4d4f;
   color: white;
