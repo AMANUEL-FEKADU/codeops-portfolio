@@ -26,7 +26,7 @@ function Menu() {
       setLoading(true)
       setError(null)
       try {
-        const res = await fetch("/dishes.json", { signal: controller.signal })
+        const res = await fetch("/dishList.json", { signal: controller.signal })
         if (!res.ok) {
           throw new Error("Could not load the menu items.")
         }
