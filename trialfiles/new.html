@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+           
+            grid-template-areas: 
+            'header header'
+            'side main'
+            'footer footer';
+            gap: 15px;
+        }
+        img{
+            width: 100px;
+        }
+
+        div{
+            border: 1px solid rgb(20, 20, 20);
+            display: flex;
+            flex-direction: column;
+            padding: 15px;
+            border-radius: 20px;
+            
+
+        }
+        header{
+            grid-area: header;
+        }
+        section{
+            grid-area: main;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill,minmax(240px,1fr));
+        }
+
+        
+        
+        aside{
+            grid-area: side;
+        
+            border: 1px solid black;
+            border-radius: 15px;
+        }
+    </style>
+</head> 
+<body>
+    <header class="header">
+        <nav>
+                  <a href="">logo</a>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section id="menu">
+
+        </section>
+
+        
+
+    </main >
+
+    <aside class="side">
+
+    </aside>
+
+    <footer class="footer">
+
+    </footer>
+    <script src="new.js"> </script>
+</body>
+</html>
