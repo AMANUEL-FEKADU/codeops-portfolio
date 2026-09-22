@@ -1,7 +1,10 @@
 const main=document.getElementById('menu')
-
+const cartContainer=document.querySelector('.cart')
+const t=document.getElementById('total')
+const cart=[]
 const menuItems=['burgers','drinks','steaks','desserts','sandwiches']
 let menu=[]
+let total=0
 const getMenu = async () => {
 
     try {
@@ -15,7 +18,7 @@ const getMenu = async () => {
     }
     console.log('menu\'s are',menu)
     render()
-        
+    renderCart()
     } catch (error) {
         console.log(error)
     }
@@ -24,6 +27,44 @@ const getMenu = async () => {
 }
 
 getMenu()
+
+const addToCart=(item)=>{
+    cart.push(item)
+    renderCart()
+
+}
+
+const renderCart=()=>{
+    cartContainer.innerHTML='<h3>Your Cart</h3>'
+
+    if(cart.length===0){
+        const empty=document.createElement('p');
+        empty.textContent='Cart is empty';
+        cartContainer.appendChild(empty)
+        return;
+    }
+
+    cart.forEach((item,index)=>{
+        const cartItem = document.createElement('div');
+        cartItem.style.display = 'flex';
+        cartItem.style.justifyContent = 'space-between';
+        cartItem.style.margin = '8px 0';
+        cartItem.style.padding = '5px 10px';
+        cartItem.style.border = '1px solid #ddd';
+
+        const nameSpan = document.createElement('span');
+        nameSpan.textContent = item.name;
+
+        const priceSpan = document.createElement('span');
+        priceSpan.textContent = `$${item.price}`;
+        total+=item.price
+       t.textContent=`total: $${total}`
+        cartItem.appendChild(nameSpan);
+        cartItem.appendChild(priceSpan);
+     
+        cartContainer.appendChild(cartItem);
+    })
+}
 
 
 const render=()=>{
@@ -47,11 +88,14 @@ const render=()=>{
             price.textContent=`$ ${item.price}`
             rate.textContent=`rating: ${item.rate}`
             btn.textContent='Add to cart'
+            btn.addEventListener('click',()=>addToCart(item))
+
             div.appendChild(im)
             div.appendChild(h2)
             div.appendChild(price)
             div.appendChild(rate)
             div.appendChild(btn)
+            div.className='card'
             main.appendChild(div)
     }
         

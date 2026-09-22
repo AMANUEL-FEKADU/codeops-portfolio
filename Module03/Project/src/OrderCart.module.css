@@ -1,0 +1,153 @@
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2c2c2c;
+  margin-bottom: 1.5rem;
+}
+
+/* Empty State */
+.emptyState {
+  padding: 3rem;
+  text-align: center;
+}
+
+.exploreBtn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #a62b19;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.exploreBtn:hover {
+  background-color: #8b2813;
+}
+
+/* Cart Item List */
+.itemList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.itemCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #ffffff;
+}
+
+.itemName {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #1a1a1a;
+}
+
+.itemPrice {
+  margin: 0.25rem 0 0 0;
+  color: #666666;
+  font-size: 0.9rem;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.quantity {
+  font-size: 0.95rem;
+}
+
+.addBtn {
+  padding: 0.3rem 0.7rem;
+  border: 1px solid #cccccc;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.addBtn:hover {
+  background-color: #e0e0e0;
+}
+
+.removeBtn {
+  padding: 0.35rem 0.75rem;
+  background-color: #e74c3c;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.removeBtn:hover {
+  background-color: #c0392b;
+}
+
+/* Footer Section */
+.footer {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.totalText {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.totalHighlight {
+  color: #a62b19;
+  font-weight: 700;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.clearBtn {
+  padding: 0.6rem 1rem;
+  border: 1.5px solid #8b2813;
+  background: transparent;
+  color: #8b2813;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.clearBtn:hover {
+  background-color: #8b2813;
+  color: #ffffff;
+}
+
+.checkoutBtn {
+  padding: 0.6rem 1.2rem;
+  background-color: #a62b19;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.checkoutBtn:hover {
+  background-color: #8b2813;
+}

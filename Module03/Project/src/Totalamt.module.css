@@ -1,0 +1,24 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background-color: #f8ebe1; /* Light blush pill container */
+  padding: 0.3rem 0.8rem 0.3rem 0.35rem;
+  border-radius: 12px;
+}
+
+.countTag {
+  background-color: #1b4332; /* Dark green badge */
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.35rem 0.6rem;
+  border-radius: 8px;
+  line-height: 1;
+}
+
+.amount {
+  color: #7f4f24; /* Warm brown text */
+  font-weight: 700;
+  font-size: 0.85rem;
+}

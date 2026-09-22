@@ -1,0 +1,122 @@
+/* Container takes page background natively */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2.5rem;
+  background-color: transparent;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Left Brand Logo */
+.logo {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #8b2813; /* Deep Ethiopian reddish-brown */
+  line-height: 1.05;
+}
+
+/* Navigation Menu Links */
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Base style for text links */
+.link {
+  text-decoration: none;
+  color: #4a4a4a;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.25;
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  transition: color 0.2s ease;
+}
+
+.link:hover {
+  color: #8b2813;
+}
+
+/* Active solid red/brown pill (like "Menu" in design) */
+.activePill {
+  text-decoration: none;
+  background-color: #a62b19;
+  color: #ffffff !important;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.55rem 1.2rem;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* Active text style for secondary links */
+.activeLink {
+  color: #8b2813;
+  font-weight: 700;
+}
+
+/* Right Section containing Total Badge and User profile/Sign In */
+.rightSection {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Profile / Sign In Container */
+.userSection {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.welcomeText {
+  font-size: 0.7rem;
+  color: #8a7a70;
+  font-weight: 500;
+}
+
+.userName {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #2c2c2c;
+}
+
+/* Sign In Button alternative */
+.signInBtn {
+  background-color: transparent;
+  border: 1.5px solid #8b2813;
+  color: #8b2813;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 0.45rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.signInBtn:hover {
+  background-color: #8b2813;
+  color: #ffffff;
+}
