@@ -1,0 +1,25 @@
+import React, { useState } from 'react'
+import PropTypes from 'prop-types' 
+import styles from './Dish.module.css'
+function Dish({name,price,spicey, currency='ETB'}) {
+    const[count,setCount]=useState(0)
+    const handleClick=()=>{
+        setCount(count+1)
+    }
+  return (
+    <div className={styles.container}>
+        <h3>name:{name}</h3> <span> {count}</span>
+        <h3>price:{price}{currency}</h3>
+       
+        {Boolean(spicey)&& <div className={styles.bdg}>spicy</div>}
+       <button onClick={handleClick}>Add</button>
+    </div>
+  )
+}
+Dish.propTypes ={
+    name: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    spicey: PropTypes.bool
+}
+
+export default Dish

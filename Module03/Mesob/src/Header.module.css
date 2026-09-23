@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Emblema+One&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+.mainheader{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+.navigation{
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+.navigation a{
+    text-decoration: none;
+    color: rgb(36, 35, 35);
+}
+.logo{
+    color: #7A1401;
+    font-family: 'Playfair Display';
+}

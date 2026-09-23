@@ -1,0 +1,7 @@
+:root{
+    --pagecolor:#FFF8F6
+}
+
+html{
+    background-color: var(--pagecolor);
+}
