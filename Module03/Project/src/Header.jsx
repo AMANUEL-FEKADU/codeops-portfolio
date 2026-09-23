@@ -2,21 +2,19 @@ import React from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import styles from './Header.module.css';
 import Totalamt from './Totalamt';
-import { useAuth } from './AuthContext'; // Import your auth hook
+import { useAuth } from './AuthContext'; 
 
 function Header() {
   const navigate = useNavigate();
-  const { user, logout } = useAuth(); // Read current login state
+  const { user, logout } = useAuth(); 
 
   return (
     <header className={styles.header}>
-      {/* Brand Logo */}
       <Link to="/" className={styles.logo}>
         <span>Mesob</span>
         <span>House</span>
       </Link>
 
-      {/* Navigation Bar */}
       <nav className={styles.navLinks}>
         <NavLink 
           to="/menu" 
@@ -47,13 +45,11 @@ function Header() {
         </NavLink>
       </nav>
 
-      {/* Right Controls */}
       <div className={styles.rightSection}>
         <Totalamt />
 
         <div className={styles.userSection}>
           {user ? (
-            /* Display logged-in user name & sign-out option */
             <div className={styles.userInfo}>
               <span className={styles.welcomeText}>Welcome</span>
               <span className={styles.userName}>{user.name}</span>

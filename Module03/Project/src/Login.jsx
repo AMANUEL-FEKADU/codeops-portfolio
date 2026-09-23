@@ -122,7 +122,6 @@ function Login() {
               className={styles.input}
             />
           </div>
-          <span className={styles.phoneHint}>💬 We will send a 4-digit code to verify your Ethiopian mobile number.</span>
           {errors.phone && <span className={styles.errorMessage}>{errors.phone}</span>}
         </div>
 
@@ -167,21 +166,7 @@ function Login() {
           </div>
         </div>
 
-        <div className={styles.fieldGroup}>
-          <label className={styles.label}>Primary Dining Preference (Optional)</label>
-          <div className={styles.pillsRow}>
-            {['All Heritage Delicacies', 'Fasting & Vegan (Tsom)', 'Halal Certified Meat', '100% Pure Teff (Gluten-Free)'].map((pref) => (
-              <button
-                key={pref}
-                type="button"
-                className={formData.preference === pref ? styles.activePill : styles.pill}
-                onClick={() => setFormData({ ...formData, preference: pref })}
-              >
-                {pref}
-              </button>
-            ))}
-          </div>
-        </div>
+       
 
         <div className={styles.checkboxGroup}>
           <input

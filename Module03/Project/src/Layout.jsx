@@ -10,7 +10,6 @@ function Layout() {
       <Header />
       
       <main className={styles.mainContent}>
-        {/* Child route components render here */}
         <Outlet />
       </main>
 

@@ -20,7 +20,7 @@ function OrderCart() {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>🛒 Order & Cart ({totalItems} items)</h2>
+      <h2 className={styles.title}> Order & Cart ({totalItems} items)</h2>
 
       <div className={styles.itemList}>
         {cart.map((item) => (
