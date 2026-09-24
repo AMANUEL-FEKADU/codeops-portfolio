@@ -4,6 +4,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    background-color: #fff8f6da;
     
 }
 .navigation{
@@ -15,7 +16,16 @@
 .navigation a{
     text-decoration: none;
     color: rgb(36, 35, 35);
+    text-align: center;
+    margin: auto;
+    padding: 5px;
+    border-radius: 10px;
 }
+.navigation a:hover{
+    background-color: #7A1401;
+    color: aliceblue;
+}
+
 .logo{
     color: #7A1401;
     font-family: 'Playfair Display';

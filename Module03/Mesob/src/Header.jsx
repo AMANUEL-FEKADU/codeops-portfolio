@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styles from './Header.module.css'
+import { ThemeContext } from './ThemeContext'
 function Header() {
+    const {theme,toggle}=useContext(ThemeContext)
   return (
     <div className={styles.mainheader}>
         <div>
@@ -18,6 +20,7 @@ function Header() {
             <div>
               <h2>ETB 4200</h2>
             </div>
+            <button onClick={toggle}>Current mode:{theme}</button>
             <div>
                 <button>sign up</button>
             </div>
