@@ -10,9 +10,7 @@ export default function Menu() {
     const [searchParams, setSearchParams] = useSearchParams()
     const category = searchParams.get('category') || 'All Dishes'
     
-    const total = userCartStore((state) =>
-        state.items.reduce((sum, item) => sum + (item.priceETB || item.price || 0), 0)
-    )
+    
 
     const { data: menu, loading, error } = useFetch('/dishes.json')
 
@@ -38,7 +36,7 @@ export default function Menu() {
 
     return (
         <>
-            <p>total: {total}</p>
+           
             <Searchbox />
             <CatagoryBar select={category} onSelect={handleselected} menu={currentMenu} />
             {displayed.length === 0 ? (

@@ -7,7 +7,7 @@
 .emptyState {
   display: flex;
   flex-direction: column;
-  align-gap: 1rem;
+  
 }
 
 .itemList {

@@ -28,7 +28,6 @@ const Dish = React.memo(function Dish({ id, image, name, price, spicey, currency
                 {Boolean(spicey) && <div className={styles.bdg}>🌶️spicy</div>}
             </div>
 
-            <h3>{name}</h3> <span>{count}</span>
             <h3>price: {price} {currency}</h3>
            
             <button onClick={handleClick}>Add</button>
