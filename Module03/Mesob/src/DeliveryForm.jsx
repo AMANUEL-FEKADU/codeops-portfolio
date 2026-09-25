@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { userCartStore } from './userCartStore'
 import { validate } from './validate'
-import styles from './DeliveryForm.module.css' 
+import { dishImages } from './assets/dishImages'
+import styles from './DeliveryForm.module.css'
 
 export default function DeliveryForm() {
   const navigate = useNavigate()
@@ -15,6 +16,16 @@ export default function DeliveryForm() {
     0
   )
 
+  const groupedItems = items.reduce((acc, item) => {
+    const existing = acc.find((i) => i.id === item.id)
+    if (existing) {
+      existing.qty += 1
+    } else {
+      acc.push({ ...item, qty: 1 })
+    }
+    return acc
+  }, [])
+
   const [form, setForm] = useState({
     name: '',
     phone: '',
@@ -23,7 +34,6 @@ export default function DeliveryForm() {
   })
 
   const [touched, setTouched] = useState({})
-
   const [submitting, setSubmitting] = useState(false)
   const [serverError, setServerError] = useState('')
 
@@ -38,133 +48,171 @@ export default function DeliveryForm() {
   }
 
   const errors = validate(form)
-  const hasErrors = Object.keys(errors).length > 0
-
   const shouldShowError = (field) => touched[field] && errors[field]
 
   async function handleSubmit(e) {
-    e.preventDefault()
+  e.preventDefault()
+  if (items.length === 0) return
 
-    setTouched({ name: true, phone: true, area: true, notes: true })
+  setTouched({ name: true, phone: true, area: true, notes: true })
 
-    const firstErrorField = Object.keys(errors)[0]
-    if (firstErrorField) {
-      document.getElementById(firstErrorField)?.focus()
-      return
-    }
-
-    if (submitting) return 
-    setSubmitting(true)
-    setServerError('')
-
-    try {
-      await new Promise((resolve, reject) => setTimeout(resolve, 1500))
-
-      const isSimulatedFailure = false 
-      if (isSimulatedFailure) {
-        throw new Error('Network timeout: Could not connect to TeleBirr payment gateway.')
-      }
-
-      clearCart()
-      navigate('/menu', { replace: true })
-    } catch (err) {
-      setServerError(err.message)
-      const firstField = Object.keys(form)[0]
-      document.getElementById(firstField)?.focus()
-    } finally {
-      setSubmitting(false)
-    }
+  const firstErrorField = Object.keys(errors)[0]
+  if (firstErrorField) {
+    document.getElementById(firstErrorField)?.focus()
+    return
   }
+
+  if (submitting) return
+  setSubmitting(true)
+  setServerError('')
+
+  try {
+    await new Promise((resolve) => setTimeout(resolve, 1500))
+
+    const completedOrder = {
+      orderId: Math.floor(100000 + Math.random() * 900000),
+      orderDate: new Date().toLocaleString(),
+      items: groupedItems,
+      total,
+      customer: form,
+    }
+
+    clearCart()
+    navigate('/receipt', { replace: true, state: { order: completedOrder } })
+  } catch (err) {
+    setServerError(err.message)
+  } finally {
+    setSubmitting(false)
+  }
+}
 
   return (
     <div className={styles.container}>
-      <h2>Delivery & Checkout</h2>
+      <div className={styles.summarySection}>
+        <h2>Order Summary</h2>
+        {items.length === 0 ? (
+          <p>Your cart is empty.</p>
+        ) : (
+          <ul className={styles.itemList}>
+            {groupedItems.map((item) => {
+              const imageSrc = dishImages[item.slug] || item.image
 
-      {serverError && (
-        <div role="alert" style={{ color: 'red', marginBottom: '1rem' }}>
-          {serverError}
-        </div>
-      )}
+              return (
+                <li key={item.id} className={styles.itemCard}>
+                  <img 
+                    src={imageSrc} 
+                    alt={item.name} 
+                    className={styles.itemImage} 
+                  />
+                  <div className={styles.itemDetails}>
+                    <div className={styles.itemHeader}>
+                      <h4 className={styles.itemName}>{item.name}</h4>
+                      <span className={styles.itemPrice}>
+                        {item.priceETB || item.price} ETB
+                      </span>
+                    </div>
+                    
+                    {item.description && (
+                      <p className={styles.itemDescription}>{item.description}</p>
+                    )}
 
-      <form onSubmit={handleSubmit} noValidate>
-        {/* Name Field */}
-        <div>
-          <label htmlFor="name">Full Name</label>
-          <input
-            id="name"
-            type="text"
-            name="name"
-            value={form.name}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            aria-invalid={!!shouldShowError('name')}
-            aria-describedby={shouldShowError('name') ? 'name-error' : undefined}
-          />
-          {shouldShowError('name') && (
-            <p id="name-error" role="alert" style={{ color: 'red' }}>
-              {errors.name}
-            </p>
-          )}
-        </div>
+                    <div className={styles.itemMeta}>
+                      {item.spicey && (
+                        <span className={styles.badge}>🌶️ Spicy Berbere</span>
+                      )}
+                      {item.isSpecial && (
+                        <span className={styles.badge}>⚙️ Chef Signature</span>
+                      )}
+                      {(item.spicey || item.isSpecial) && <span className={styles.dot}>•</span>}
+                      <span className={styles.qty}>Qty: {item.qty}</span>
+                    </div>
+                  </div>
+                </li>
+              )
+            })}
+          </ul>
+        )}
+      </div>
 
-        <div>
-          <label htmlFor="phone">TeleBirr Number</label>
-          <input
-            id="phone"
-            type="tel"
-            name="phone"
-            placeholder="09... or +2519..."
-            value={form.phone}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            aria-invalid={!!shouldShowError('phone')}
-            aria-describedby={shouldShowError('phone') ? 'phone-error' : undefined}
-          />
-          {shouldShowError('phone') && (
-            <p id="phone-error" role="alert" style={{ color: 'red' }}>
-              {errors.phone}
-            </p>
-          )}
-        </div>
+      <div className={styles.formSection}>
+        <h2>Delivery & Checkout</h2>
 
-        <div>
-          <label htmlFor="area">Delivery Area</label>
-          <select
-            id="area"
-            name="area"
-            value={form.area}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            aria-invalid={!!shouldShowError('area')}
-            aria-describedby={shouldShowError('area') ? 'area-error' : undefined}
+        {serverError && (
+          <div role="alert" className={styles.serverError}>
+            {serverError}
+          </div>
+        )}
+
+        <form onSubmit={handleSubmit} noValidate className={styles.form}>
+          <div className={styles.fieldGroup}>
+            <label htmlFor="name">Full Name</label>
+            <input
+              id="name"
+              type="text"
+              name="name"
+              value={form.name}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              aria-invalid={!!shouldShowError('name')}
+            />
+            {shouldShowError('name') && (
+              <p className={styles.errorText} role="alert">{errors.name}</p>
+            )}
+          </div>
+
+          <div className={styles.fieldGroup}>
+            <label htmlFor="phone">TeleBirr Number</label>
+            <input
+              id="phone"
+              type="tel"
+              name="phone"
+              placeholder="09... or +2519..."
+              value={form.phone}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              aria-invalid={!!shouldShowError('phone')}
+            />
+            {shouldShowError('phone') && (
+              <p className={styles.errorText} role="alert">{errors.phone}</p>
+            )}
+          </div>
+
+          <div className={styles.fieldGroup}>
+            <label htmlFor="area">Delivery Area</label>
+            <select
+              id="area"
+              name="area"
+              value={form.area}
+              onChange={handleChange}
+              onBlur={handleBlur}
+            >
+              <option value="Bole">Bole</option>
+              <option value="Kazanchis">Kazanchis</option>
+              <option value="Megenagna">Megenagna</option>
+              <option value="Piassa">Piassa</option>
+            </select>
+          </div>
+
+          <div className={styles.fieldGroup}>
+            <label htmlFor="notes">Delivery Notes (Optional)</label>
+            <textarea
+              id="notes"
+              name="notes"
+              value={form.notes}
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+          </div>
+
+          <button 
+            type="submit" 
+            disabled={submitting || items.length === 0} 
+            className={styles.submitBtn}
           >
-            <option value="Bole">Bole</option>
-            <option value="Kazanchis">Kazanchis</option>
-            <option value="Megenagna">Megenagna</option>
-            <option value="Piassa">Piassa</option>
-          </select>
-          {shouldShowError('area') && (
-            <p id="area-error" role="alert" style={{ color: 'red' }}>
-              {errors.area}
-            </p>
-          )}
-        </div>
-
-        <div>
-          <label htmlFor="notes">Delivery Notes (Optional)</label>
-          <textarea
-            id="notes"
-            name="notes"
-            value={form.notes}
-            onChange={handleChange}
-            onBlur={handleBlur}
-          />
-        </div>
-
-        <button type="submit" disabled={submitting}>
-          {submitting ? 'Sending your order...' : `Order — ${total.toLocaleString()} ETB`}
-        </button>
-      </form>
+            {submitting ? 'Sending your order...' : `Order — ${total.toLocaleString()} ETB`}
+          </button>
+        </form>
+      </div>
     </div>
   )
 }

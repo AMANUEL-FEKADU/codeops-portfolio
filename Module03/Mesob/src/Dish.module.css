@@ -19,8 +19,8 @@
 }
 .bdg{
     position: absolute;
-    bottom: 5px;
-    left: 40%;
+    top:180px ;
+    left: 70%;
    
     background: rgba(245, 237, 232, 0.92);
     width: fit-content;
