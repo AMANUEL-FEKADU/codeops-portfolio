@@ -1,18 +1,20 @@
 import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-
+import { useAuth } from './AuthContext'
 
 export default function Signup(){
     const navigate=useNavigate()
     const location = useLocation()
+    const { login } = useAuth()
 
     const from=location.state?.from?.pathname || '/menu'
 
     const handleSignIn=(e)=>{
         e.preventDefault()
-        localStorage.setItem('user',JSON.stringify({loggedIn:true}))
+        login({ loggedIn: true }) 
+        navigate(from, { replace: true })
 
-        navigate(from, {replace:true})
+        
 
     }
 

@@ -1,16 +1,18 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types' 
 import styles from './Dish.module.css'
+import { userCartStore } from './userCartStore'
 
 const Dish = React.memo(function Dish({ id, image, name, price, spicey, currency = 'ETB', onAdd }) {
     const [count, setCount] = useState(0)
-
-    const handleClick = () => {
+    const addItem = userCartStore((state) => state.addItem)
+    
+    const handleClick = (e) => {
+        e.stopPropagation()
+        e.preventDefault()
         setCount(prevCount => prevCount + 1)
-        
-        if (onAdd) {
-            onAdd({ id, name, price, image })
-        }
+        addItem({id,name,price,image})
+       
     }
 
     return (

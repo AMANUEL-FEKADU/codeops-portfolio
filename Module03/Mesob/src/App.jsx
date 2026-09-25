@@ -9,12 +9,14 @@ import DishDetail from './DishDetail'
 import DeliveryForm from './DeliveryForm'
 import RequireAuth from './RequireAuth'
 import Signup from './Signup'
+import { AuthProvider } from './AuthContext'
 function App() {
    
 
     
     return (
-  <CartProvider>
+  <AuthProvider>
+
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Layout/>}>
@@ -35,7 +37,8 @@ function App() {
       </Routes>
     
     </BrowserRouter>
-  </CartProvider>
+ 
+  </AuthProvider>
   )
 }
 

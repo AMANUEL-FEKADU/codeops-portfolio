@@ -1,13 +1,13 @@
 import React from 'react'
 import { Navigate, useLocation } from 'react-router-dom'
+import { useAuth } from './AuthContext' 
 
+export default function RequireAuth({ children }) {
+    const location = useLocation()
+    const { user } = useAuth() 
 
-export default function RequireAuth({children}){
-    const location=useLocation()
-    const isAuthenticated=Boolean(localStorage.getItem('user'))
-
-    if(!isAuthenticated){
-        return <Navigate to='/signup' replace state={{from: location}}/>
+    if (!user) {
+        return <Navigate to='/signup' replace state={{ from: location }} />
     }
 
     return children
