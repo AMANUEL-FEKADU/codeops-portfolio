@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
 import styles from './Header.module.css'
-import { ThemeContext } from './ThemeContext'
+import { useCart } from './CartContext'
 function Header() {
-    const {theme,toggle}=useContext(ThemeContext)
-  return (
+    const {items,total}=useCart()
+    return (
     <div className={styles.mainheader}>
         <div>
             <h1 className={styles.logo}>Mesob <br /> House</h1>
@@ -17,10 +17,18 @@ function Header() {
             </nav>
         </div>
         
-            <div>
-              <h2>ETB 4200</h2>
+            <div className={styles.crtbg}>
+              <div className={styles.items}>
+                <span className={styles.itemCount}>{items.length}</span>
+                    <span className={styles.itemLabel}>items</span>
+              </div>
+              <div className={styles.total}>
+                <span className={styles.currencyLabel}>ETB</span>
+                    <span className={styles.totalAmount}>
+                        {total ? total.toLocaleString() : 0}
+                    </span>
+              </div>
             </div>
-            <button onClick={toggle}>Current mode:{theme}</button>
             <div>
                 <button>sign up</button>
             </div>

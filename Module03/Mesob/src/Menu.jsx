@@ -1,23 +1,22 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import Header from './Header'
 
 import CatagoryBar from './CatagoryBar'
 import DishWrapper from './DishWrapper'
 import DeliveryForm from './DeliveryForm'
 import Searchbox from './Searchbox'
-import { ThemeProvider } from './ThemeContext'
 import { useFetch } from './useFetch'
+import { CartProvider, useCart } from './CartContext'
 
-function Menu() {
+function MenuContent() {
     
     const [catagory,setCatagory]=useState('All Dishes')
-    const [total,setTotal]=useState(0)
-  
+    const {dispatch,total}=useCart()
     
-        const{data:menu,loading,error}=useFetch('/dishes.json')
-    function handlecartTotal(price){
-        setTotal(total+price)
-    }
+    const{data:menu,loading,error}=useFetch('/dishes.json')
+    const handlecartTotal = useCallback((dish) => {
+    dispatch({ type: 'add', dish })
+  }, [dispatch])
     const currentMenu=menu||[]
     const displayed=catagory==='All Dishes'?
                     currentMenu
@@ -33,16 +32,22 @@ function Menu() {
 
     return (
    <>
-   <ThemeProvider>
+
    <Header/>
    <p>total:{total}</p>
    <Searchbox/>
    <CatagoryBar select={catagory} onSelect={setCatagory} menu={currentMenu}/>
    {displayed.length===0? <div>Empty</div>: <DishWrapper children={displayed} onAdd={handlecartTotal}/>}
     <DeliveryForm/>
-    </ThemeProvider>
+   
    </>
   )
 }
 
-export default Menu
+export default function Menu(){
+    return(
+        <CartProvider>
+            <MenuContent/>
+        </CartProvider>
+    )
+}

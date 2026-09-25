@@ -8,7 +8,7 @@ function DishWrapper({children, onAdd}) {
   return (
     <div className={styles.container}>
         {children.map(dish=>(
-            <Dish key={dish.id} image={dishImages[dish.slug]} name={dish.nameEn} price={dish.priceETB} spicey={!dish.spiceLevel.includes('Mild')&& !dish.spiceLevel.includes('Sweet')} onAdd={onAdd}/>
+            <Dish key={dish.id} id={dish.id} image={dishImages[dish.slug]} name={dish.nameEn} price={dish.priceETB} spicey={!dish.spiceLevel.includes('Mild')&& !dish.spiceLevel.includes('Sweet')} onAdd={onAdd}/>
         ))}
     </div>
   )
