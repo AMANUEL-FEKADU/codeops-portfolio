@@ -1,0 +1,26 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(23deg,rgba(255, 217, 0, 0.564),rgb(230, 97, 88));
+}
+.error{
+    width: 300px;
+    height: 300px;
+    color: rgb(62, 8, 75);
+}
+.bt a{
+    text-decoration: none;
+    color: aliceblue;
+
+}
+
+.bt{
+    background-color: #7A1401;
+    color: aliceblue;
+    border-style: none;
+    border-radius: 15px;
+    padding: 0.8rem;
+    margin: 0.3rem;
+}
