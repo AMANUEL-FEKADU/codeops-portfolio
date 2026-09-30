@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-function page() {
+export default function HomePage() {
   return (
     <div>
         <nav>
@@ -9,8 +9,9 @@ function page() {
             <Link href='/cart'>Cart</Link>
             <Link href="/checkout">Checkout</Link>
         </nav>
+        <div>
+          home
+        </div>
     </div>
   )
 }
-
-export default page

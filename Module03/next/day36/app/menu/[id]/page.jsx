@@ -1,12 +1,17 @@
+import HomePage from '@/app/page'
+import { notFound } from 'next/navigation'
 import React from 'react'
-
-function page({params}) {
-    const { id }=params
+import Link from 'next/link'
+export default async function DishDetailPage({params}) {
+  const {id}= await params
+  if(id ==='unknown'){
+    notFound()
+  }
   return (
     <div>
-        <p>{id}</p>
+      <Link href='/'>home</Link>
+
+      <h2>DISH: {id}</h2>
     </div>
   )
 }
-
-export default page
