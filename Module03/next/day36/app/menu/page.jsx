@@ -2,9 +2,12 @@
 import React from 'react'
 import Link from 'next/link'
 import DishList from './DishList'
+
+
+export const revalidate=3600
+
 export default async function MenuPage() {
-  await new Promise((resolve) => setTimeout(resolve, 2000))
- 
+
   return (
     <div>
        
