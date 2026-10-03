@@ -1,6 +1,9 @@
 import React from 'react'
 import Link from 'next/link'
-export default function DishList() {
+import { resolve } from 'styled-jsx/css'
+export default async function DishList() {
+    await new Promise((resolve)=>setTimeout(resolve,2000))
+
     const dishes=[
         { id: "kitfo", name: "Special Kitfo", price: "450 ETB" },
     { id: "shiro", name: "Shiro Tegabeno", price: "220 ETB" },
