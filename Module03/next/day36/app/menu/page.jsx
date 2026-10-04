@@ -8,7 +8,8 @@ import DishSkeleton from './DishSkeleton'
 export const revalidate=3600
 
 export default async function MenuPage() {
-
+  const result=await fetch('https://addis-eats-backend.onrender.com/menu/')
+  const dishes=await result.json()
   return (
     <div>
        
@@ -20,7 +21,7 @@ export default async function MenuPage() {
       </div>
       <Suspense fallback={<DishSkeleton/>}>
 
-             <DishList/>
+             <DishList dishes={dishes}/>
       </Suspense>
        
     </div>

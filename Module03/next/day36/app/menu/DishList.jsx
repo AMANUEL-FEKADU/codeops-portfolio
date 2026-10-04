@@ -1,14 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
-import { resolve } from 'styled-jsx/css'
-export default async function DishList() {
-    await new Promise((resolve)=>setTimeout(resolve,2000))
 
-    const dishes=[
-        { id: "kitfo", name: "Special Kitfo", price: "450 ETB" },
-    { id: "shiro", name: "Shiro Tegabeno", price: "220 ETB" },
-    { id: "doro-wat", name: "Doro Wat", price: "550 ETB" }
-    ]
+export default async function DishList({dishes}) {
   return (
     <div>
         {dishes.map(d=>(
