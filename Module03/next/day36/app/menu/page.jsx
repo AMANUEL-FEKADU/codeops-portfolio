@@ -3,13 +3,15 @@ import React, { Suspense } from 'react'
 import Link from 'next/link'
 import DishList from './DishList'
 import DishSkeleton from './DishSkeleton'
+import FilterShell from './FilterShell';
 
-
-export const revalidate=3600
-
+export const revalidate = 3600;
 export default async function MenuPage() {
+              
   const result=await fetch('https://addis-eats-backend.onrender.com/menu/')
-  const dishes=await result.json()
+  const res=await result.json()
+  const dishes=res.data
+    
   return (
     <div>
        
@@ -19,11 +21,14 @@ export default async function MenuPage() {
         <Link href='/cart'>go to cart</Link>
         </nav>
       </div>
-      <Suspense fallback={<DishSkeleton/>}>
+      <FilterShell dishes={dishes}>
+        <Suspense fallback={<DishSkeleton/>}>
 
-             <DishList dishes={dishes}/>
-      </Suspense>
-       
+              <DishList/>
+        </Suspense>
+      </FilterShell>
+      
+
     </div>
   )
 }

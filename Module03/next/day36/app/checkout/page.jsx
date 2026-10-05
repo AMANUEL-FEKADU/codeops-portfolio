@@ -6,6 +6,7 @@ import { cookies } from 'next/headers'
 export default async function CheckoutPage() {
     const cookiestore=await cookies()
     const session=cookiestore.get("session")?.value||'guest'
+// this forces dynamic rendering
   return (
    <>
     <div>

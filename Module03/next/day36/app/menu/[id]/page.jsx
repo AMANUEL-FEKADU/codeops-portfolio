@@ -4,18 +4,22 @@ import React from 'react'
 import Link from 'next/link'
 
 
-// returned 3 pages since i only had 3 id's
+// returned 20 pages since the api had 20 dishes
 export async function generateStaticParams(){
-  const dishes=[{id:'kitfo'},{id:'shiro'},{id:'doro-wot'}]
-
-  return dishes.map((dish)=>({
-    id:dish.id
-  }))
-
+  const result=await fetch('https://addis-eats-backend.onrender.com/menu/')
+  const res=await result.json()
+  const dishes=res.data
+  return dishes.map((d)=>({id:d.id}))
 }
-export default async function DishDetailPage({params}) {
+
+export default async function DishDetailPage({params,}) {
   const {id}= await params
-  if(id ==='unknown'){
+  const result= await fetch('https://addis-eats-backend.onrender.com/menu/')
+  const res= await result.json()
+  const dishes=res.data || []
+  const dish=dishes.find((item)=> String(item.id)=== String(id))
+
+  if(!dish){
     notFound()
   }
   return (
@@ -23,6 +27,12 @@ export default async function DishDetailPage({params}) {
       <Link href='/'>home</Link>
 
       <h2>DISH: {id}</h2>
+
+      <div>
+              <h2>{dish.nameEn}</h2>
+              <p>{dish.description}</p>
+      </div>
     </div>
   )
+
 }
