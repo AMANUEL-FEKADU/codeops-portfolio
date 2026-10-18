@@ -16,7 +16,7 @@ import quantaFirfir from './quanta-firfir.png'
 import shiroBozena from './shiro-bozena.png'
 import shiroTegamino from './shiro-tegamino.png'
 import sigaDerekTibs from './siga-derek-tibs.png'
-
+import shai from './spiced-habesha-chai.png'
 export const dishImages = {
   'doro-wat': doroWat,
   'siga-wat': shiroBozena, 
@@ -37,5 +37,5 @@ export const dishImages = {
   'fresh-timatim-fitfit': freshTimatimFitfit,
   'house-tej-carafe': houseTejCarafe,
   'jebena-spiced-coffee': jebenaSpicedCoffee,
-  'spiced-habesha-chai': jebenaSpicedCoffee 
+  'spiced-habesha-chai': shai 
 }

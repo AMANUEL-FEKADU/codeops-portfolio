@@ -3,7 +3,6 @@ import { redirect } from "next/navigation";
 import { getSession } from "@/lib/session";
 import { getOrdersFor } from "@/lib/orders";
 import { formatETB } from "@/lib/money";
-import OrdersTools from "./OrdersTools";
 
 export const metadata = {
   title: "Orders",
@@ -21,10 +20,8 @@ export default async function OrdersPage() {
   return (
     <main className="mx-auto max-w-3xl px-4 py-10">
       <h1 className="font-serif text-4xl">Your orders</h1>
-      <p className="mt-2 text-[#5c4638]">
-        This list is scoped to session id {user.id} — never to an id in the URL.
-      </p>
-      <OrdersTools />
+     
+     
       {orders.length === 0 ? (
         <p className="mt-8 text-[#5c4638]">No orders yet.</p>
       ) : (

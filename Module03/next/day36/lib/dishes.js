@@ -1,4 +1,5 @@
 import menu from "./menu.json";
+import { dishImages } from "@/public/assets/dishImages";
 
 export const PAGE_SIZE = 6;
 
@@ -19,24 +20,28 @@ export function getCategories() {
 }
 
 export function imageFor(dish) {
-  if (dish.category.includes("Stew")) return "/dishes/stew.svg";
-  if (dish.category.includes("Tibs")) return "/dishes/grill.svg";
-  if (dish.category.includes("Kitfo")) return "/dishes/kitfo.svg";
-  if (dish.category.includes("Tsom") || dish.category.includes("Vegan")) {
-    return "/dishes/vegan.svg";
+  if (dish && dish.slug && dishImages[dish.slug]) {
+    return dishImages[dish.slug];
   }
-  return "/dishes/drink.svg";
+  
+  return dishImages["doro-wat"] || "/assets/doro-wot.png";
 }
 
 export function searchDishes(query) {
-  const term = query.trim().toLowerCase();
+  const term = (query || "").trim().toLowerCase();
   if (!term) return menu;
+
   return menu.filter((dish) => {
+    const nameEn = (dish.nameEn || "").toLowerCase();
+    const nameAm = (dish.nameAm || "").toLowerCase();
+    const category = (dish.category || "").toLowerCase();
+    const description = (dish.description || "").toLowerCase();
+
     return (
-      dish.nameEn.toLowerCase().includes(term) ||
-      dish.nameAm.includes(query) ||
-      dish.category.toLowerCase().includes(term) ||
-      dish.description.toLowerCase().includes(term)
+      nameEn.includes(term) ||
+      nameAm.includes(term) ||
+      category.includes(term) ||
+      description.includes(term)
     );
   });
 }

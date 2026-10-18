@@ -13,14 +13,13 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 md:grid-cols-2">
           <div>
             <p className="text-sm uppercase tracking-[0.25em] text-amber-300">
-              Addis Ababa delivery
+              Addis Eats delivery
             </p>
             <h1 className="mt-3 font-serif text-4xl leading-tight md:text-6xl">
-              Injera, berbere, and tonight&apos;s specials at your door.
+              Beg alecha wot, tegamino and tonight&apos;s specials at your door.
             </h1>
             <p className="mt-5 max-w-md text-amber-100/90">
-              Order Doro Wat, Tibs and Kitfo from kitchens in Bole and
-              Kazanchis. Paid with TeleBirr.
+              Order Doro Wat, Tibs and Kitfo from our kitchens all over addis
             </p>
             <Link
               href="/menu"
@@ -31,7 +30,7 @@ export default function HomePage() {
           </div>
           <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-amber-200/20">
             <Image
-              src="/hero.svg"
+              src="/assets/doro-wot.png"
               alt="A round platter of Ethiopian dishes on injera"
               fill
               priority

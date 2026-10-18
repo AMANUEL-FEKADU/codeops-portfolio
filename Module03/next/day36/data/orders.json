@@ -1,0 +1,51 @@
+[
+  {
+    "id": "ord_mvdxxxb8",
+    "userId": "usr_addis_01",
+    "customerName": "Almaz",
+    "phone": "0911000000",
+    "notes": "",
+    "items": [
+      {
+        "dishId": "menu-1",
+        "name": "Classic Doro Wat",
+        "quantity": 1,
+        "unitPrice": 650,
+        "lineTotal": 650
+      }
+    ],
+    "total": 650,
+    "currency": "ETB",
+    "status": "received",
+    "createdAt": "2026-10-18T14:48:52.964Z",
+    "updatedAt": "2026-10-18T14:48:52.964Z"
+  },
+  {
+    "id": "ord_mvdxuixj",
+    "userId": "usr_addis_01",
+    "customerName": "Almaz",
+    "phone": "0911000000",
+    "notes": "",
+    "items": [
+      {
+        "dishId": "menu-1",
+        "name": "Classic Doro Wat",
+        "quantity": 1,
+        "unitPrice": 650,
+        "lineTotal": 650
+      },
+      {
+        "dishId": "menu-2",
+        "name": "Prime Siga Wat (Beef Stew)",
+        "quantity": 2,
+        "unitPrice": 580,
+        "lineTotal": 1160
+      }
+    ],
+    "total": 1810,
+    "currency": "ETB",
+    "status": "received",
+    "createdAt": "2026-10-18T14:46:14.359Z",
+    "updatedAt": "2026-10-18T14:46:14.359Z"
+  }
+]

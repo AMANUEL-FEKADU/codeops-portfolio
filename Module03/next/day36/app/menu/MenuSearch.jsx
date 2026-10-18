@@ -1,54 +1,47 @@
+// app/menu/MenuSearch.jsx
 "use client";
 
-import { useState } from "react";
-import Link from "next/link";
-import useSWR from "swr";
-import { fetcher } from "@/lib/fetcher";
-import { useDebounce } from "@/lib/useDebounce";
-import { formatETB } from "@/lib/money";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useState, useEffect } from "react";
 
-export default function MenuSearch() {
-  const [term, setTerm] = useState("");
-  const debounced = useDebounce(term, 300);
+export default function MenuSearch({ defaultValue = "" }) {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const [term, setTerm] = useState(defaultValue);
 
-  const { data, isLoading } = useSWR(
-    debounced ? `/api/dishes?q=${encodeURIComponent(debounced)}` : null,
-    fetcher,
-    { keepPreviousData: true },
-  );
+  useEffect(() => {
+    setTerm(defaultValue);
+  }, [defaultValue]);
 
-  const dishes = data?.items ?? [];
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const params = new URLSearchParams(searchParams.toString());
+      if (term.trim()) {
+        params.set("q", term.trim());
+      } else {
+        params.delete("q");
+      }
+      params.delete("page"); // Reset pagination back to page 1 on search
+
+      router.push(`/menu?${params.toString()}`);
+    }, 300); // 300ms debounce
+
+    return () => clearTimeout(timer);
+  }, [term, router, searchParams]);
 
   return (
-    <div className="rounded-2xl bg-white p-4 ring-1 ring-amber-900/10">
-      <label htmlFor="menu-search" className="text-sm font-medium">
+    <div className="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-amber-900/10">
+      <label htmlFor="search" className="block text-sm font-medium text-[#3b140d]">
         Search the menu
       </label>
       <input
-        id="menu-search"
-        type="search"
+        id="search"
+        type="text"
         value={term}
-        onChange={(event) => setTerm(event.target.value)}
+        onChange={(e) => setTerm(e.target.value)}
         placeholder="Try kitfo, shiro, tibs…"
-        className="mt-2 w-full rounded-xl border border-amber-900/15 px-3 py-2"
+        className="mt-2 w-full rounded-xl border border-amber-900/15 px-4 py-2.5 text-sm text-[#3b140d] outline-none focus:border-[#3b140d] focus:ring-1 focus:ring-[#3b140d]"
       />
-      {isLoading && <p className="mt-2 text-xs text-[#5c4638]">Searching…</p>}
-      {debounced && (
-        <ul className="mt-3 space-y-2">
-          {dishes.map((dish) => (
-            <li key={dish.id}>
-              <Link href={`/menu/${dish.id}`} className="block text-sm">
-                {dish.nameEn} · {formatETB(dish.priceETB)}
-              </Link>
-            </li>
-          ))}
-          {dishes.length === 0 && !isLoading && (
-            <li className="text-sm text-[#5c4638]">
-              No dishes found for “{debounced}”.
-            </li>
-          )}
-        </ul>
-      )}
     </div>
   );
 }

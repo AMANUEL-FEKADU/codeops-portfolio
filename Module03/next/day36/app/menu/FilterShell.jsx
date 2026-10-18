@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import CategoryBar from "./CategoryBar";
 
 export default function FilterShell({ categories, children }) {
   const [selected, setSelected] = useState("All");
@@ -23,11 +22,7 @@ export default function FilterShell({ categories, children }) {
 
   return (
     <div>
-      <CategoryBar
-        categories={categories}
-        selected={selected}
-        onSelect={setSelected}
-      />
+      
       <div ref={rootRef} className="mt-6">
         {children}
       </div>

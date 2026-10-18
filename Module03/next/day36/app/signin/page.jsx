@@ -19,7 +19,7 @@ export default async function SignInPage({ searchParams }) {
         <code>{next}</code>.
       </p>
       <SignInForm next={next} />
-      <div className="mt-8 rounded-2xl bg-white p-4 text-sm ring-1 ring-amber-900/10">
+      {/* <div className="mt-8 rounded-2xl bg-white p-4 text-sm ring-1 ring-amber-900/10">
         <p className="font-medium">Demo accounts</p>
         <ul className="mt-2 space-y-1 text-[#5c4638]">
           {DEMO_USERS.map((user) => (
@@ -28,7 +28,7 @@ export default async function SignInPage({ searchParams }) {
             </li>
           ))}
         </ul>
-      </div>
+      </div> */}
     </main>
   );
 }

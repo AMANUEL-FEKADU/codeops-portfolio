@@ -1,24 +1,26 @@
-import Counter from "./Counter";
+// app/menu/layout.jsx
+import CategoryBar from "./CategoryBar";
 import { getCategories } from "@/lib/dishes";
 
 export default function MenuLayout({ children }) {
-  const categories = getCategories().filter((item) => item !== "All");
+  const categories = getCategories();
 
   return (
-    <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 lg:grid-cols-[260px_1fr]">
-      <aside className="space-y-4 lg:sticky lg:top-24 lg:self-start">
-        <h2 className="font-serif text-2xl">Kitchen sidebar</h2>
-        <p className="text-sm text-[#5c4638]">
-          This layout stays mounted when you open a dish.
-        </p>
-        <ul className="space-y-1 text-sm">
-          {categories.map((category) => (
-            <li key={category}>{category}</li>
-          ))}
-        </ul>
-        <Counter />
-      </aside>
-      <div>{children}</div>
+    <div className="mx-auto max-w-6xl px-4 py-8">
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
+        {/* Clean Sidebar */}
+        <aside className="md:col-span-1">
+          <div className="sticky top-20 rounded-2xl bg-[#3b140d]/5 p-5 border border-amber-900/10">
+            <h2 className="font-serif text-xl font-bold text-[#3b140d] mb-4">
+              Categories
+            </h2>
+            <CategoryBar categories={categories} vertical={true} />
+          </div>
+        </aside>
+
+        {/* Main Content Area */}
+        <main className="md:col-span-3">{children}</main>
+      </div>
     </div>
   );
 }

@@ -1,45 +1,41 @@
-import { Suspense } from "react";
-import { getCategories } from "@/lib/dishes";
+// app/menu/page.jsx
 import FilterShell from "./FilterShell";
-import DishSkeleton from "./DishSkeleton";
-import SlowDishes from "./SlowDishes";
 import MenuSearch from "./MenuSearch";
 import MenuPager from "./MenuPager";
-
-export const metadata = {
-  title: "Menu",
-  description:
-    "Doro Wat, Tibs, Kitfo and Shiro, delivered across Addis Ababa.",
-  alternates: { canonical: "/menu" },
-};
+import DishList from "./DishList";
+import { searchDishes, paginateDishes } from "@/lib/dishes";
 
 export const revalidate = 3600;
 
-export default async function MenuPage() {
-  const categories = getCategories();
+export default async function MenuPage({ searchParams }) {
+  const params = await searchParams;
+  const query = params?.q || "";
+  const selectedCategory = params?.category || "All";
+  const page = Number(params?.page) || 1;
+
+  // Filter by search query first
+  let filtered = searchDishes(query);
+
+  // Filter by category if one is selected
+  if (selectedCategory && selectedCategory !== "All") {
+    filtered = filtered.filter(
+      (dish) => dish.category === selectedCategory
+    );
+  }
+
+  const { items, totalPages, page: currentPage } = paginateDishes(filtered, page);
 
   return (
-    <main>
-      <h1 className="font-serif text-4xl">The menu</h1>
-      <p className="mt-2 max-w-2xl text-[#5c4638]">
-        Dishes are fetched on the server and regenerated at most once an hour.
-        Search and paging run in the browser with SWR.
-      </p>
-      <div className="mt-6">
-        <MenuSearch />
-      </div>
-      <div className="mt-8">
-        <Suspense fallback={<DishSkeleton />}>
-          <FilterShell categories={categories}>
-            <Suspense fallback={<DishSkeleton />}>
-              <SlowDishes />
-            </Suspense>
-          </FilterShell>
-        </Suspense>
-      </div>
-      <Suspense>
-        <MenuPager />
-      </Suspense>
-    </main>
+    <div className="space-y-6">
+      <MenuSearch defaultValue={query} />
+
+      <FilterShell>
+        <DishList dishes={items} />
+      </FilterShell>
+
+      {totalPages > 1 && (
+        <MenuPager currentPage={currentPage} totalPages={totalPages} />
+      )}
+    </div>
   );
 }
