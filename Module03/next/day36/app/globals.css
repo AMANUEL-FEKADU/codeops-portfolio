@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+:root {
+  --cream: #faf6f1;
+  --ink: #1c120c;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  min-height: 100vh;
+}
+
+.menu-filter-root[data-menu-filter]:not([data-menu-filter="All"]) [data-dish] {
+  display: none;
+}
+
+.menu-filter-root[data-menu-filter="Traditional Stews & Wat"] [data-dish="Traditional Stews & Wat"],
+.menu-filter-root[data-menu-filter="Tibs & Grills"] [data-dish="Tibs & Grills"],
+.menu-filter-root[data-menu-filter="Raw & Cured Delicacies / Kitfo"] [data-dish="Raw & Cured Delicacies / Kitfo"],
+.menu-filter-root[data-menu-filter="Fasting & Vegan / Tsom"] [data-dish="Fasting & Vegan / Tsom"],
+.menu-filter-root[data-menu-filter="Beverages & Tej"] [data-dish="Beverages & Tej"] {
+  display: flex;
+}

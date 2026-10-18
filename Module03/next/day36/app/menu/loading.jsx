@@ -1,9 +1,12 @@
-import React from 'react'
+import DishSkeleton from "./DishSkeleton";
 
-export default function loading() {
+export default function Loading() {
   return (
     <div>
-      <h2>Loading .....</h2>
+      <div className="h-8 w-40 animate-pulse rounded bg-amber-100" />
+      <div className="mt-6">
+        <DishSkeleton />
+      </div>
     </div>
-  )
+  );
 }

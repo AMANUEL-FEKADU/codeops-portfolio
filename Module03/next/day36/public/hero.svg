@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-label="Ethiopian platter">
+  <rect width="1200" height="900" fill="#4a1c12"/>
+  <ellipse cx="600" cy="470" rx="420" ry="300" fill="#e7c58a"/>
+  <ellipse cx="600" cy="470" rx="360" ry="250" fill="#f3d7a4"/>
+  <circle cx="480" cy="400" r="90" fill="#9a2a12"/>
+  <circle cx="640" cy="360" r="80" fill="#c45c26"/>
+  <circle cx="760" cy="470" r="85" fill="#6b8f3c"/>
+  <circle cx="520" cy="540" r="70" fill="#d4a017"/>
+  <circle cx="680" cy="560" r="75" fill="#7a2e12"/>
+  <circle cx="600" cy="470" r="36" fill="#f4e4c1"/>
+</svg>
