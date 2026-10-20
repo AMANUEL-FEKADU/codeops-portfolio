@@ -32,6 +32,11 @@ export async function getOrdersFor(userId) {
   return orders.filter((order) => order.userId === userId).map(progress);
 }
 
+export async function getOrders() {
+  const orders = await readAll();
+  return orders.map(progress);
+}
+
 export async function getAllOrders() {
   const orders = await readAll();
   return orders.map(progress);
@@ -61,6 +66,7 @@ export async function createOrder({ user, name, phone, notes, items }) {
     userId: user.id,
     customerName: name,
     phone,
+    area: area || "Bole",
     notes: notes || "",
     items: lines,
     total: lines.reduce((sum, line) => sum + line.lineTotal, 0),
