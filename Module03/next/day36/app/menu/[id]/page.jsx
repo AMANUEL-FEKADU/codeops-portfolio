@@ -9,6 +9,7 @@ export async function generateStaticParams() {
   const dishes = await getDishes();
   return dishes.map((dish) => ({ id: dish.id }));
 }
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }) {
   const { id } = await params;
