@@ -6,7 +6,8 @@ import { formatETB } from "@/lib/money";
 import AddToCartButton from "@/components/AddToCartButton";
 
 export async function generateStaticParams() {
-  return getDishes().map((dish) => ({ id: dish.id }));
+  const dishes = await getDishes();
+  return dishes.map((dish) => ({ id: dish.id }));
 }
 
 export async function generateMetadata({ params }) {
