@@ -14,5 +14,8 @@ export function middleware(request) {
 }
 
 export const config = {
-  matcher: ["/checkout/:path*", "/orders/:path*", "/kitchen/:path*"],
+  matcher: [
+  
+    "/((?!api|_next/static|_next/image|favicon.ico|signin|menu).*)",
+  ],
 };
