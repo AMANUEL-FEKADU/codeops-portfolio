@@ -1,4 +1,5 @@
 // app/menu/page.jsx
+import { Suspense } from "react";
 import FilterShell from "./FilterShell";
 import MenuSearch from "./MenuSearch";
 import MenuPager from "./MenuPager";
@@ -13,10 +14,8 @@ export default async function MenuPage({ searchParams }) {
   const selectedCategory = params?.category || "All";
   const page = Number(params?.page) || 1;
 
-  // Filter by search query first
   let filtered = searchDishes(query);
 
-  // Filter by category if one is selected
   if (selectedCategory && selectedCategory !== "All") {
     filtered = filtered.filter(
       (dish) => dish.category === selectedCategory
@@ -27,7 +26,10 @@ export default async function MenuPage({ searchParams }) {
 
   return (
     <div className="space-y-6">
-      <MenuSearch defaultValue={query} />
+      {/* Wrap MenuSearch in Suspense to satisfy useSearchParams requirement */}
+      <Suspense fallback={<div className="h-10 w-full animate-pulse bg-amber-900/10 rounded-xl" />}>
+        <MenuSearch defaultValue={query} />
+      </Suspense>
 
       <FilterShell>
         <DishList dishes={items} />
