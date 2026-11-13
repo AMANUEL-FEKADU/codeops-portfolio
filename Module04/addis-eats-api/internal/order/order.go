@@ -21,9 +21,9 @@ func deliveryFeeSantim(area string) (int, error) {
 }
 
 type Dish struct {
-	Name string
+	Name        string
 	PriceSantim int
-	paid bool
+	paid        bool
 }
 
 type Order struct {
@@ -33,27 +33,26 @@ type Order struct {
 }
 
 func (o Order) SubTotalSantim() int {
-	total:=0
-	for _, d:=range o.Dishes{total+=d.PriceSantim}
+	total := 0
+	for _, d := range o.Dishes {
+		total += d.PriceSantim
+	}
 	return total
 }
 
-func (o *Order) AddItmes(d Dish){
-	o.Dishes=append(o.Dishes, d)
+func (o *Order) AddItmes(d Dish) {
+	o.Dishes = append(o.Dishes, d)
 }
 
-func (o Order) TotalSantim() (int, error) {
-	subTotal:=o.SubTotalSantim()
-	fee:=int(serviceFeeSantim(float64(subTotal)))
-	deliveryFee, err:=deliveryFeeSantim(o.Area)
-	if err!=nil{
-		return 0, err
-	}
-	return subTotal+fee+deliveryFee, nil
+// func (o Order) TotalSantim() (int, error) {
+// 	subTotal:=o.SubTotalSantim()
+// 	fee:=int(serviceFeeSantim(float64(subTotal)))
+// 	// deliveryFee:=deliveryFeeSantim(o.Area)
+// 	return subTotal+fee+deliveryFee, nil
 
-}
-shiro:=Dish{
-	Name:"Shiro",
-	PriceSantim:5000,
-	paid:false,
-}
+//}
+// shiro:=Dish{S
+// 	Name:"Shiro",
+// 	PriceSantim:5000,
+// 	paid:false,
+// }
