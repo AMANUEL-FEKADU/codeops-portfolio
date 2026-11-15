@@ -2,21 +2,33 @@ package main
 
 import "fmt"
 
-var deliveryFee int
+var price int
 var tip float64
 var name string
 var paid bool
+
+var subtotal = 68500
+var deliveryFee = 3000
+
+var fee = int(float64(subtotal) * 5 / 100)
+var total = subtotal + deliveryFee + fee
 
 func main() {
 	fmt.Println("Yod Abysinnia")
 	fmt.Println("Bole area")
 
-	fmt.Printf("%v\n", deliveryFee)
+	fmt.Printf("%v\n", price)
 	fmt.Printf("%v\n", tip)
 	fmt.Printf("%q\n", name)
 	fmt.Printf("%v\n", paid)
 
-	var person map[string]string
-	person["firstName"] = "Yod"
+	// panic: assignment to entry in nil map
+	// var person map[string]string
+	// person["firstName"] = "Yod"
+
+	fmt.Printf("Subtotal: ETB %.2f\n", float64(subtotal)/100)
+	fmt.Printf("Fee: ETB%.2f\n", float64(fee)/100)
+	fmt.Printf("Delivery Fee: ETB %.2f\n", float64(deliveryFee)/100)
+	fmt.Printf("Total: ETB %.2f\n", float64(total)/100)
 
 }
