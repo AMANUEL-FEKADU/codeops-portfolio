@@ -120,6 +120,7 @@ func main() {
 	fmt.Println(location, err)
 	newarea, err2 := deliveryFeeSantimMap(area[1])
 	fmt.Println(newarea, err2)
+
 }
 
 //if a function name starts in lower case it's private else it can be imported

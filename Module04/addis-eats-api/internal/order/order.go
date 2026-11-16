@@ -1,63 +1,77 @@
 package main
 
-import "fmt"
+// import "fmt"
 
-func main() {
-	fmt.Println("Yod Abysinnia")
-	fmt.Println("Bole area")
-}
-
-// func lineTotal(priceSantim, qty int) int {
-// 	return priceSantim * qty
+// func main() {
+// 	fmt.Println("Yod Abysinnia")
+// 	fmt.Println("Bole area")
 // }
 
-// func serviceFeeSantim(subTotal float64) float64 {
-// 	return subTotal * 0.15
-// }
+// // func lineTotal(priceSantim, qty int) int {
+// // 	return priceSantim * qty
+// // }
 
-// func deliveryFeeSantim(area string) (int, error) {
-// 	switch area {
-// 	case "Bole":
-// 		return 3000, nil
-// 	case "Megenagna":
-// 		return 2000, nil
-// 	}
-// 	return 0, fmt.Errorf(area, "is not covered on our Delivery locations")
-// }
+// // func serviceFeeSantim(subTotal float64) float64 {
+// // 	return subTotal * 0.15
+// // }
 
-// type Dish struct {
-// 	Name        string
-// 	PriceSantim int
-// 	paid        bool
-// }
+// // func deliveryFeeSantim(area string) (int, error) {
+// // 	switch area {
+// // 	case "Bole":
+// // 		return 3000, nil
+// // 	case "Megenagna":
+// // 		return 2000, nil
+// // 	}
+// // 	return 0, fmt.Errorf(area, "is not covered on our Delivery locations")
+// // }
 
-// type Order struct {
-// 	Dishes []Dish
-// 	Area   string
-// 	paid   bool
-// }
+// // type Dish struct {
+// // 	Name        string
+// // 	PriceSantim int
+// // 	paid        bool
+// // }
 
-// func (o Order) SubTotalSantim() int {
-// 	total := 0
-// 	for _, d := range o.Dishes {
-// 		total += d.PriceSantim
-// 	}
-// 	return total
-// }
+// // type Order struct {
+// // 	Dishes []Dish
+// // 	Area   string
+// // 	paid   bool
+// // }
 
-// func (o *Order) AddItmes(d Dish) {
-// 	o.Dishes = append(o.Dishes, d)
-// }
+// // func (o Order) SubTotalSantim() int {
+// // 	total := 0
+// // 	for _, d := range o.Dishes {
+// // 		total += d.PriceSantim
+// // 	}
+// // 	return total
+// // }
 
-// func (o Order) TotalSantim() (int, error) {
-// 	subTotal:=o.SubTotalSantim()
-// 	fee:=int(serviceFeeSantim(float64(subTotal)))
-// 	// deliveryFee:=deliveryFeeSantim(o.Area)
-// 	return subTotal+fee+deliveryFee, nil
+// // func (o *Order) AddItmes(d Dish) {
+// // 	o.Dishes = append(o.Dishes, d)
+// // }
 
-//}
-// shiro:=Dish{S
-// 	Name:"Shiro",
-// 	PriceSantim:5000,
-// 	paid:false,
+// // func (o Order) TotalSantim() (int, error) {
+// // 	subTotal:=o.SubTotalSantim()
+// // 	fee:=int(serviceFeeSantim(float64(subTotal)))
+// // 	// deliveryFee:=deliveryFeeSantim(o.Area)
+// // 	return subTotal+fee+deliveryFee, nil
+
+// //}
+// // shiro:=Dish{S
+// // 	Name:"Shiro",
+// // 	PriceSantim:5000,
+// // 	paid:false,
+// // }
+
+// import (
+// 	"errors"
+// 	"sync"
+// 	"://example.com/"
+// )
+// var ErrorNotFOund=errors.New("order not found")
+
+// type Order struct{
+// 	Items []Dish
+// 	IsPaid bool
+// 	Area string
+
 // }
