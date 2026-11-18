@@ -1,4 +1,10 @@
-package main
+package order
+
+import (
+	"errors"
+
+	"github.com/Amanuel-Fekadu/codeops-portfolio/Module04/addis-eats-api/internal/menu"
+)
 
 // import "fmt"
 
@@ -62,16 +68,23 @@ package main
 // // 	paid:false,
 // // }
 
-// import (
-// 	"errors"
-// 	"sync"
-// 	"://example.com/"
-// )
-// var ErrorNotFOund=errors.New("order not found")
+// Sentinel errors for order operations
+var (
+	ErrNotFound     = errors.New("order not found")
+	ErrInvalidItems = errors.New("order must contain at least one valid dish")
+)
 
-// type Order struct{
-// 	Items []Dish
-// 	IsPaid bool
-// 	Area string
+// Order represents a customer order with snake_case JSON tags
+type Order struct {
+	ID          string      `json:"id"`
+	Items       []menu.Dish `json:"items"`
+	TotalSantim int         `json:"total_santim"`
+	Status      string      `json:"status"` // e.g., "pending", "preparing", "ready"
+}
 
-// }
+// OrderStore defines read and write capabilities for orders
+type OrderStore interface {
+	All() ([]Order, error)
+	ByID(id string) (Order, error)
+	Create(dishIDs []string) (Order, error)
+}
